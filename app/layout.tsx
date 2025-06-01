@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,18 +8,39 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
+
 export const metadata: Metadata = {
-  title: "Niharika Surapuram - Portfolio",
+  title: "Niharika Surapuram - Full-Stack Developer",
   description:
-    "Professional portfolio of Niharika Surapuram - Software Engineer & Developer",
+    "Computer Science graduate from PES University. Full-stack developer specializing in React, Next.js, and modern web technologies. Passionate about building innovative software solutions.",
   keywords: [
     "Niharika Surapuram",
+    "Full-Stack Developer",
+    "React",
+    "Next.js",
+    "Computer Science",
+    "PES University",
     "Software Engineer",
-    "Developer",
-    "Portfolio",
   ],
-  authors: [{ name: "Niharika Surapuram" }],
+  authors: [
+    {
+      name: "Niharika Surapuram",
+      url: "https://linkedin.com/in/niharikasurapuram",
+    },
+  ],
   viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    title: "Niharika Surapuram - Full-Stack Developer",
+    description:
+      "Computer Science graduate specializing in React, Next.js, and modern web technologies.",
+    url: "https://niharika.vercel.app",
+    siteName: "Niharika Surapuram Portfolio",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -27,11 +49,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased bg-white text-gray-900`}
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
