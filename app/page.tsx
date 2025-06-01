@@ -11,6 +11,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Portfolio() {
   return (
@@ -48,6 +49,12 @@ export default function Portfolio() {
                 >
                   Education
                 </a>
+                <Link
+                  href="/blog"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Blog
+                </Link>
                 <a
                   href="#contact"
                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -68,7 +75,7 @@ export default function Portfolio() {
             <div>
               <div className="mb-6">
                 <span className="text-lg text-gray-600 dark:text-gray-400">
-                  👋 Hello, I'm
+                  👋 Hello, I&apos;m
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
@@ -136,13 +143,14 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Hey there! 👋 I'm a Computer Science Specialist who's all about
-                cracking problems and crafting cool software solutions. I love
-                diving into innovative projects and bringing them to life.
+                Hey there! 👋 I&apos;m a Computer Science Specialist who&apos;s
+                all about cracking problems and crafting cool software
+                solutions. I love diving into innovative projects and bringing
+                them to life.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 Currently working as a Cloud Analyst at Oracle, focusing on
-                cloud infrastructure and consulting. I've got some frontend
+                cloud infrastructure and consulting. I&apos;ve got some frontend
                 skills, adding that extra touch of style to my coding
                 adventures! My focus is on React and Next.js, building modern
                 web applications that solve real-world problems.
@@ -661,7 +669,7 @@ export default function Portfolio() {
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
             Please contact me directly at niharikasurapuram@gmail.com or through
-            any of the social links below. I'm always interested in new
+            any of the social links below. I&apos;m always interested in new
             opportunities and collaborations!
           </p>
           <div className="flex justify-center space-x-8">
