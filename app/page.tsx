@@ -35,15 +35,17 @@ export default function Portfolio() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight">
+              <h1 className="text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight leading-tight">
                 {personalInfo.name}
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-400 mb-4 font-light">
-                {personalInfo.title}
-              </p>
-              <p className="text-base text-gray-500 dark:text-gray-500 mb-12 leading-relaxed max-w-lg">
-                {personalInfo.description}
-              </p>
+              <div className="space-y-4 mb-12">
+                <p className="text-xl text-gray-600 dark:text-gray-400 font-light">
+                  {personalInfo.title}
+                </p>
+                <p className="text-base text-gray-500 dark:text-gray-500 leading-relaxed max-w-lg">
+                  {personalInfo.description}
+                </p>
+              </div>
               <div className="flex gap-4">
                 <a
                   href={`mailto:${personalInfo.email}`}
@@ -83,8 +85,9 @@ export default function Portfolio() {
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             About
           </h2>
-          <div className="grid md:grid-cols-2 gap-16">
-            <div className="space-y-6">
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Bio Column */}
+            <div className="md:col-span-2 space-y-6">
               {aboutDescription.map((paragraph, index) => (
                 <p
                   key={index}
@@ -93,36 +96,43 @@ export default function Portfolio() {
                   {paragraph}
                 </p>
               ))}
-              <div className="pt-4 space-y-3">
+              <div className="pt-6 space-y-4">
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                  <MapPin className="w-4 h-4 mr-3" />
+                  <MapPin className="w-4 h-4 mr-3 text-gray-400 dark:text-gray-500" />
                   <span>{personalInfo.location}</span>
                 </div>
                 <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                  <Building2 className="w-4 h-4 mr-3" />
+                  <Building2 className="w-4 h-4 mr-3 text-gray-400 dark:text-gray-500" />
                   <span>{personalInfo.connections}</span>
                 </div>
               </div>
             </div>
+
+            {/* Technologies Column */}
             <div>
-              <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-8">
-                Technologies
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-8">
+                Tech Stack
               </h3>
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {Object.entries(techSkills).map(([category, skills]) => (
                   <div key={category}>
-                    <h4 className="text-xs font-medium text-gray-500 dark:text-gray-500 mb-3 uppercase tracking-wider">
+                    <h4 className="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wider">
                       {category}
                     </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.map((skill) => (
-                        <span
+                    <div className="space-y-2">
+                      {skills.slice(0, 4).map((skill) => (
+                        <div
                           key={skill}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
+                          className="text-xs text-gray-600 dark:text-gray-400 py-1"
                         >
                           {skill}
-                        </span>
+                        </div>
                       ))}
+                      {skills.length > 4 && (
+                        <div className="text-xs text-gray-500 dark:text-gray-500 italic">
+                          +{skills.length - 4} more
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -138,20 +148,21 @@ export default function Portfolio() {
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             Experience
           </h2>
-          <div className="space-y-12">
+          <div className="space-y-16">
             {experiences.map((exp, index) => (
               <div
                 key={exp.company}
                 className={
                   index !== experiences.length - 1
-                    ? "border-b border-gray-100 dark:border-gray-800 pb-12"
+                    ? "border-b border-gray-100 dark:border-gray-800 pb-16"
                     : ""
                 }
               >
-                <div className="flex justify-between items-start mb-6">
+                {/* Header */}
+                <div className="flex justify-between items-start mb-8">
                   <div className="flex items-start space-x-4">
                     {exp.logo ? (
-                      <Avatar className="w-10 h-10 rounded-lg">
+                      <Avatar className="w-12 h-12 rounded-lg">
                         <AvatarImage
                           src={exp.logo}
                           alt={`${exp.company} Logo`}
@@ -162,87 +173,118 @@ export default function Portfolio() {
                         </AvatarFallback>
                       </Avatar>
                     ) : (
-                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white font-medium text-sm">
+                      <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white font-medium">
                           {exp.logoFallback}
                         </span>
                       </div>
                     )}
                     <div>
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                      <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-1">
                         {exp.role}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-medium">
+                      <p className="text-lg text-gray-600 dark:text-gray-400 font-medium mb-2">
                         {exp.company}
                       </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-500">
-                        {exp.type} • {exp.location}
-                      </p>
-                      {exp.description && (
-                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1 max-w-2xl">
-                          {exp.description}
-                        </p>
-                      )}
+                      <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-500">
+                        <span className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-1" />
+                          {exp.startDate} - {exp.endDate}
+                        </span>
+                        <span>•</span>
+                        <span>{exp.type}</span>
+                        <span>•</span>
+                        <span>{exp.location}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {exp.startDate} - {exp.endDate}
-                    </span>
-                    {exp.team && (
-                      <p className="text-xs text-gray-500 dark:text-gray-500 mt-1 flex items-center">
-                        <Users className="w-3 h-3 mr-1" />
+                  {exp.team && (
+                    <div className="text-right">
+                      <p className="text-sm text-gray-500 dark:text-gray-500 flex items-center">
+                        <Users className="w-4 h-4 mr-1" />
                         {exp.team}
                       </p>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
-                <div className="ml-14 space-y-6">
-                  {/* Responsibilities */}
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Key Responsibilities
-                    </h4>
-                    <ul className="text-gray-600 dark:text-gray-400 space-y-1 text-sm leading-relaxed">
-                      {exp.responsibilities.map((responsibility, idx) => (
-                        <li key={idx}>• {responsibility}</li>
-                      ))}
-                    </ul>
+                {/* Description */}
+                {exp.description && (
+                  <div className="mb-8">
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-4xl">
+                      {exp.description}
+                    </p>
+                  </div>
+                )}
+
+                {/* Content Grid */}
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Left Column - Responsibilities & Achievements */}
+                  <div className="space-y-6">
+                    {/* Key Responsibilities */}
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wider">
+                        Key Responsibilities
+                      </h4>
+                      <ul className="space-y-2">
+                        {exp.responsibilities
+                          .slice(0, 3)
+                          .map((responsibility, idx) => (
+                            <li
+                              key={idx}
+                              className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex items-start"
+                            >
+                              <span className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                              {responsibility}
+                            </li>
+                          ))}
+                        {exp.responsibilities.length > 3 && (
+                          <li className="text-sm text-gray-500 dark:text-gray-500 italic">
+                            +{exp.responsibilities.length - 3} more
+                            responsibilities
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+
+                    {/* Achievements */}
+                    {exp.achievements && exp.achievements.length > 0 && (
+                      <div>
+                        <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wider flex items-center">
+                          <Award className="w-4 h-4 mr-2" />
+                          Key Achievements
+                        </h4>
+                        <ul className="space-y-2">
+                          {exp.achievements.map((achievement, idx) => (
+                            <li
+                              key={idx}
+                              className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed flex items-start"
+                            >
+                              <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                              {achievement}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
-                  {/* Skills Used */}
+                  {/* Right Column - Technologies */}
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3 uppercase tracking-wider">
                       Technologies Used
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
+                          className="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-md"
                         >
                           {skill}
                         </span>
                       ))}
                     </div>
                   </div>
-
-                  {/* Achievements */}
-                  {exp.achievements && exp.achievements.length > 0 && (
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
-                        <Award className="w-3 h-3 mr-1" />
-                        Key Achievements
-                      </h4>
-                      <ul className="text-gray-600 dark:text-gray-400 space-y-1 text-sm leading-relaxed">
-                        {exp.achievements.map((achievement, idx) => (
-                          <li key={idx}>• {achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
                 </div>
               </div>
             ))}
@@ -256,86 +298,116 @@ export default function Portfolio() {
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             Projects
           </h2>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="group space-y-4">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+              <div
+                key={index}
+                className="group border border-gray-100 dark:border-gray-800 rounded-lg p-6 hover:border-gray-200 dark:hover:border-gray-700 transition-colors"
+              >
+                {/* Project Header */}
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                     {project.title}
                   </h3>
                   {project.duration && (
-                    <span className="text-xs text-gray-500 dark:text-gray-500">
+                    <span className="text-xs text-gray-500 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-1 rounded">
                       {project.duration}
                     </span>
                   )}
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
-                  {project.description}
-                </p>
-
-                {project.role && (
-                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
-                    <span>
-                      <strong>Role:</strong> {project.role}
-                    </span>
+                {/* Project Meta */}
+                {(project.role || project.teamSize) && (
+                  <div className="flex items-center gap-4 mb-4 text-xs text-gray-500 dark:text-gray-500">
+                    {project.role && (
+                      <span className="flex items-center">
+                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                        {project.role}
+                      </span>
+                    )}
                     {project.teamSize && (
-                      <span>
-                        <strong>Team:</strong> {project.teamSize}
+                      <span className="flex items-center">
+                        <Users className="w-3 h-3 mr-1" />
+                        {project.teamSize}
                       </span>
                     )}
                   </div>
                 )}
 
-                {/* Key Features */}
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm mb-4">
+                  {project.description}
+                </p>
+
+                {/* Key Features - Show only first 2 */}
                 {project.keyFeatures && project.keyFeatures.length > 0 && (
-                  <div>
-                    <h4 className="text-xs font-medium text-gray-500 dark:text-gray-500 mb-2 uppercase tracking-wider">
+                  <div className="mb-4">
+                    <h4 className="text-xs font-semibold text-gray-900 dark:text-gray-100 mb-2 uppercase tracking-wider">
                       Key Features
                     </h4>
-                    <ul className="text-gray-600 dark:text-gray-400 space-y-1 text-xs leading-relaxed">
-                      {project.keyFeatures.map((feature, idx) => (
-                        <li key={idx}>• {feature}</li>
+                    <ul className="space-y-1">
+                      {project.keyFeatures.slice(0, 2).map((feature, idx) => (
+                        <li
+                          key={idx}
+                          className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed flex items-start"
+                        >
+                          <span className="w-1 h-1 bg-gray-400 dark:bg-gray-500 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+                          {feature}
+                        </li>
                       ))}
+                      {project.keyFeatures.length > 2 && (
+                        <li className="text-xs text-gray-500 dark:text-gray-500 italic">
+                          +{project.keyFeatures.length - 2} more features
+                        </li>
+                      )}
                     </ul>
                   </div>
                 )}
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="mb-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tech.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.tech.length > 4 && (
+                      <span className="px-2 py-1 text-gray-500 dark:text-gray-500 text-xs">
+                        +{project.tech.length - 4}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      View Project
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                    >
-                      <Github className="w-3 h-3 mr-1" />
-                      GitHub
-                    </a>
-                  )}
-                </div>
+                {(project.link || project.github) && (
+                  <div className="flex gap-4 pt-2 border-t border-gray-100 dark:border-gray-800">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                      >
+                        <ExternalLink className="w-3 h-3 mr-1" />
+                        View Project
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                      >
+                        <Github className="w-3 h-3 mr-1" />
+                        GitHub
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -348,38 +420,40 @@ export default function Portfolio() {
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             Education
           </h2>
-          <div className="space-y-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {education.map((edu, index) => (
               <div
                 key={edu.institution}
-                className={
-                  index !== education.length - 1
-                    ? "border-b border-gray-100 dark:border-gray-800 pb-8"
-                    : ""
-                }
+                className="border border-gray-100 dark:border-gray-800 rounded-lg p-6 hover:border-gray-200 dark:hover:border-gray-700 transition-colors"
               >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                      {edu.institution}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      {edu.degree}
-                      {edu.field && `, ${edu.field}`}
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                    {edu.degree}
+                  </p>
+                  {edu.field && (
+                    <p className="text-xs text-gray-500 dark:text-gray-500 mb-3">
+                      {edu.field}
                     </p>
-                    <p className="text-gray-500 dark:text-gray-500 text-xs">
-                      {edu.location}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-xs text-gray-500 dark:text-gray-500">
+                  )}
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-500 dark:text-gray-500 flex items-center justify-center">
+                      <Calendar className="w-3 h-3 mr-1" />
                       {edu.endYear
                         ? `${edu.startYear} - ${edu.endYear}`
                         : edu.startYear}
-                    </span>
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    </div>
+                    <div className="text-xs text-gray-500 dark:text-gray-500 flex items-center justify-center">
+                      <MapPin className="w-3 h-3 mr-1" />
+                      {edu.location}
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 px-3 py-1 rounded-full">
                       Grade: {edu.grade}
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
