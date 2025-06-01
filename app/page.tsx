@@ -33,15 +33,17 @@ export default function Portfolio() {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight">
+              <h1 className="text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight leading-tight">
                 {personalInfo.name}
               </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-400 mb-4 font-light">
-                {personalInfo.title}
-              </p>
-              <p className="text-base text-gray-500 dark:text-gray-500 mb-12 leading-relaxed max-w-lg">
-                {personalInfo.description}
-              </p>
+              <div className="space-y-4 mb-12">
+                <p className="text-xl text-gray-600 dark:text-gray-400 font-light">
+                  {personalInfo.title}
+                </p>
+                <p className="text-base text-gray-500 dark:text-gray-500 leading-relaxed max-w-lg">
+                  {personalInfo.description}
+                </p>
+              </div>
               <div className="flex gap-4">
                 <a
                   href={`mailto:${personalInfo.email}`}
