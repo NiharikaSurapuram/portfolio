@@ -11,6 +11,7 @@ import {
   techSkills,
 } from "@/lib/data";
 import {
+  Award,
   Building2,
   Calendar,
   Download,
@@ -19,6 +20,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Users,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -176,6 +178,11 @@ export default function Portfolio() {
                       <p className="text-sm text-gray-500 dark:text-gray-500">
                         {exp.type} • {exp.location}
                       </p>
+                      {exp.description && (
+                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1 max-w-2xl">
+                          {exp.description}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div className="text-right">
@@ -183,14 +190,59 @@ export default function Portfolio() {
                       <Calendar className="w-3 h-3 mr-1" />
                       {exp.startDate} - {exp.endDate}
                     </span>
+                    {exp.team && (
+                      <p className="text-xs text-gray-500 dark:text-gray-500 mt-1 flex items-center">
+                        <Users className="w-3 h-3 mr-1" />
+                        {exp.team}
+                      </p>
+                    )}
                   </div>
                 </div>
-                <div className="ml-14">
-                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
-                    {exp.responsibilities.map((responsibility, idx) => (
-                      <li key={idx}>• {responsibility}</li>
-                    ))}
-                  </ul>
+
+                <div className="ml-14 space-y-6">
+                  {/* Responsibilities */}
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Key Responsibilities
+                    </h4>
+                    <ul className="text-gray-600 dark:text-gray-400 space-y-1 text-sm leading-relaxed">
+                      {exp.responsibilities.map((responsibility, idx) => (
+                        <li key={idx}>• {responsibility}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Skills Used */}
+                  <div>
+                    <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Technologies Used
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Achievements */}
+                  {exp.achievements && exp.achievements.length > 0 && (
+                    <div>
+                      <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center">
+                        <Award className="w-3 h-3 mr-1" />
+                        Key Achievements
+                      </h4>
+                      <ul className="text-gray-600 dark:text-gray-400 space-y-1 text-sm leading-relaxed">
+                        {exp.achievements.map((achievement, idx) => (
+                          <li key={idx}>• {achievement}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -206,14 +258,51 @@ export default function Portfolio() {
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             {projects.map((project, index) => (
-              <div key={index} className="group">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
+              <div key={index} className="group space-y-4">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.duration && (
+                    <span className="text-xs text-gray-500 dark:text-gray-500">
+                      {project.duration}
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
+
+                {project.role && (
+                  <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
+                    <span>
+                      <strong>Role:</strong> {project.role}
+                    </span>
+                    {project.teamSize && (
+                      <span>
+                        <strong>Team:</strong> {project.teamSize}
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* Key Features */}
+                {project.keyFeatures && project.keyFeatures.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-medium text-gray-500 dark:text-gray-500 mb-2 uppercase tracking-wider">
+                      Key Features
+                    </h4>
+                    <ul className="text-gray-600 dark:text-gray-400 space-y-1 text-xs leading-relaxed">
+                      {project.keyFeatures.map((feature, idx) => (
+                        <li key={idx}>• {feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
@@ -223,15 +312,30 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    View Project
-                  </a>
-                )}
+
+                {/* Links */}
+                <div className="flex gap-4">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                    >
+                      <ExternalLink className="w-3 h-3 mr-1" />
+                      View Project
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                    >
+                      <Github className="w-3 h-3 mr-1" />
+                      GitHub
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
