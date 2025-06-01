@@ -300,21 +300,21 @@ export default function Portfolio() {
                   "Oracle Database",
                   "PL/SQL",
                 ],
-                link: "#",
+                link: undefined,
               },
               {
                 title: "Art Gallery Database Management System",
                 description:
                   "Streamlined gallery operations with a comprehensive user-friendly interface for managing artists, artworks, exhibitions, and sales. Designed to replace manual systems with efficient digital solutions.",
                 tech: ["Database Design", "SQL", "System Architecture"],
-                link: "#",
+                link: undefined,
               },
               {
                 title: "Beauty Product Recommendation System",
                 description:
                   "Leveraged machine learning algorithms for personalized product recommendations based on user preferences, reviews, and product descriptions.",
                 tech: ["Python", "Machine Learning", "Data Analysis"],
-                link: "#",
+                link: undefined,
               },
               {
                 title: "ASAP - Online Grocery Store",
@@ -325,21 +325,21 @@ export default function Portfolio() {
                   "Authentication",
                   "E-commerce",
                 ],
-                link: "#",
+                link: undefined,
               },
               {
                 title: "Food Ordering Dashboard",
                 description:
                   "Built a modern, responsive food ordering platform with real-time order tracking and seamless user experience using cutting-edge React technologies.",
                 tech: ["Next.js", "React.js", "Material-UI"],
-                link: "#",
+                link: undefined,
               },
               {
                 title: "Raft Consensus Algorithm Implementation",
                 description:
                   "Implemented the Raft consensus algorithm in GoLang to achieve fault-tolerant distributed coordination among nodes in distributed systems.",
                 tech: ["GoLang", "Distributed Systems", "System Design"],
-                link: "#",
+                link: undefined,
               },
             ].map((project, index) => (
               <div key={index} className="group">
@@ -359,13 +359,15 @@ export default function Portfolio() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                >
-                  <ExternalLink className="w-3 h-3 mr-1" />
-                  View Project
-                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View Project
+                  </a>
+                )}
               </div>
             ))}
           </div>
