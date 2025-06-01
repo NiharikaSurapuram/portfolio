@@ -142,8 +142,8 @@ export default function Portfolio() {
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 Currently working as a Cloud Analyst at Oracle, focusing on
-                cloud infrastructure and consulting. I've got strong frontend
-                skills and enjoy adding that extra touch of style to my coding
+                cloud infrastructure and consulting. I've got some frontend
+                skills, adding that extra touch of style to my coding
                 adventures! My focus is on React and Next.js, building modern
                 web applications that solve real-world problems.
               </p>
@@ -158,34 +158,85 @@ export default function Portfolio() {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                Top Skills
+                🚀 Skills
               </h3>
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {[
-                  "C++",
-                  "React.js",
-                  "JavaScript",
-                  "TypeScript",
-                  "Next.js",
-                  "Node.js",
-                  "Python",
-                  "Java",
-                  "Cloud Infrastructure",
-                  "Cloud Consulting",
-                  "Prisma ORM",
-                  "HTML",
-                  "CSS",
-                  "Tailwind",
-                  "MySQL",
-                  "Git",
-                ].map((skill) => (
-                  <div
-                    key={skill}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
-                  >
-                    {skill}
+
+              <div className="space-y-6">
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+                    Programming
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "C/C++",
+                      "JavaScript",
+                      "Python",
+                      "Java",
+                      "TypeScript",
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm rounded-full font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+                    Web Development
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {["HTML", "CSS", "React.js", "Next.js", "Node.js"].map(
+                      (skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm rounded-full font-mono"
+                        >
+                          {skill}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+                    Databases & Cloud
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {["MongoDB", "MySQL", "AWS Lambda", "AWS S3"].map(
+                      (skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm rounded-full font-mono"
+                        >
+                          {skill}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+                    Tools & Others
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {["Git", "Docker", "Machine Learning", "Data Analysis"].map(
+                      (skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm rounded-full font-mono"
+                        >
+                          {skill}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -326,46 +377,84 @@ export default function Portfolio() {
       >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            My Projects
+            💼 Projects
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Review Driven Beauty Product Recommendation System",
+                title: "Art Gallery Database Management System",
                 description:
-                  "Developed a review-driven beauty product recommendation system by utilizing user reviews, product descriptions, and personal preferences to provide personalized recommendations.",
-                tech: ["Python", "Machine Learning", "NLP", "Data Analysis"],
+                  "Streamlined gallery operations with a comprehensive user-friendly interface for managing artists, artworks, exhibitions, and sales. Designed to replace manual systems with efficient digital solutions.",
+                tech: [
+                  "Database Design",
+                  "SQL",
+                  "System Architecture",
+                  "UI/UX",
+                ],
                 link: "#",
+                icon: "🎨",
               },
               {
-                title: "Assignment Submission Portal",
+                title: "Beauty Product Recommendation System",
                 description:
-                  "Built a comprehensive system with database for storing information on assignments, submissions, and grading. Designed to override the problems of existing manual systems.",
-                tech: ["Spring Boot", "Java", "MySQL", "REST API"],
+                  "Leveraged machine learning algorithms for personalized product recommendations based on user preferences, reviews, and product descriptions. Implemented advanced data analysis techniques.",
+                tech: ["Python", "Machine Learning", "Data Analysis", "NLP"],
                 link: "#",
+                icon: "💄",
               },
               {
-                title: "Implementing Raft Logic in GoLang",
+                title: "Music Player with GUI",
                 description:
-                  "Implemented Raft Consensus algorithm in Go to achieve fault tolerant and distributed coordination among nodes in distributed systems.",
-                tech: ["GoLang", "Distributed Systems", "Consensus Algorithm"],
+                  "Designed an intuitive music player application using Python and Tkinter with a clean graphical user interface. Features include playlist management, audio controls, and file organization.",
+                tech: ["Python", "Tkinter", "GUI Design", "Audio Processing"],
                 link: "#",
+                icon: "🎵",
+              },
+              {
+                title: "ASAP - Online Grocery Store",
+                description:
+                  "Led the development of a comprehensive e-commerce platform with robust user authentication, dynamic product catalog, shopping cart functionality, and secure payment processing.",
+                tech: [
+                  "Full-Stack Development",
+                  "Authentication",
+                  "E-commerce",
+                  "Database",
+                ],
+                link: "#",
+                icon: "🛒",
               },
               {
                 title: "Food Ordering Dashboard",
                 description:
-                  "The Food Ordering Dashboard simplifies the dining experience with a user-friendly interface for menu browsing, order placement, and delivery tracking.",
+                  "Built a modern, responsive food ordering platform with real-time order tracking, menu management, and seamless user experience using cutting-edge React technologies.",
                 tech: ["Next.js", "React.js", "Material-UI", "Jotai"],
                 link: "#",
+                icon: "🍕",
+              },
+              {
+                title: "Raft Consensus Algorithm Implementation",
+                description:
+                  "Implemented the Raft consensus algorithm in GoLang to achieve fault-tolerant distributed coordination among nodes in distributed systems, ensuring data consistency and reliability.",
+                tech: [
+                  "GoLang",
+                  "Distributed Systems",
+                  "Consensus Algorithm",
+                  "System Design",
+                ],
+                link: "#",
+                icon: "⚡",
               },
             ].map((project, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all"
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all group"
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  {project.title}
-                </h3>
+                <div className="flex items-start space-x-3 mb-4">
+                  <span className="text-2xl">{project.icon}</span>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                </div>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                   {project.description}
                 </p>
