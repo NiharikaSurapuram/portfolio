@@ -35,6 +35,12 @@ export async function generateMetadata({
     post.html.replace(/<[^>]*>/g, "").split(" ").length / 200
   );
 
+  const ogImageUrl = `/api/og/dark?title=${encodeURIComponent(
+    post.title
+  )}&description=${encodeURIComponent(
+    post.summary || post.description
+  )}&type=post`;
+
   return {
     title: post.title,
     description: post.summary || post.description,
@@ -52,12 +58,21 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: [post.author || personalInfo.name],
       tags: post.tags || [],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.summary || post.description,
       creator: "@niharikasurapuram",
+      images: [ogImageUrl],
     },
     alternates: {
       canonical: `https://niharika.vercel.app/blog/${slug}`,

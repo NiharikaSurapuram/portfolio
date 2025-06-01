@@ -67,7 +67,7 @@ export const metadata: Metadata = {
       "Cloud Analyst at Oracle specializing in Oracle Cloud Infrastructure and full-stack development. Building enterprise solutions with modern technologies.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/api/og?type=portfolio",
         width: 1200,
         height: 630,
         alt: `${personalInfo.name} - Cloud Analyst at Oracle`,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: `${personalInfo.name} - ${personalInfo.title}`,
     description:
       "Cloud Analyst at Oracle specializing in Oracle Cloud Infrastructure and full-stack development.",
-    images: ["/og-image.png"],
+    images: ["/api/og?type=portfolio"],
     creator: "@niharikasurapuram",
   },
   verification: {

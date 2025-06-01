@@ -24,11 +24,30 @@ export const metadata: Metadata = {
     description: `Technical insights and thoughts on technology, development, and cloud computing by ${personalInfo.name}.`,
     url: "https://niharika.vercel.app/blog",
     type: "website",
+    images: [
+      {
+        url: `/api/og?title=${encodeURIComponent(
+          `Blog | ${personalInfo.name}`
+        )}&description=${encodeURIComponent(
+          `Technical insights and thoughts on technology, development, and cloud computing by ${personalInfo.name}.`
+        )}&type=blog`,
+        width: 1200,
+        height: 630,
+        alt: `Blog | ${personalInfo.name}`,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `Blog | ${personalInfo.name}`,
     description: `Technical insights and thoughts on technology, development, and cloud computing by ${personalInfo.name}.`,
+    images: [
+      `/api/og?title=${encodeURIComponent(
+        `Blog | ${personalInfo.name}`
+      )}&description=${encodeURIComponent(
+        `Technical insights and thoughts on technology, development, and cloud computing by ${personalInfo.name}.`
+      )}&type=blog`,
+    ],
   },
   alternates: {
     canonical: "https://niharika.vercel.app/blog",
