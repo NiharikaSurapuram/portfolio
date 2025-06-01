@@ -2,7 +2,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 
 interface HeaderProps {
-  currentPage?: "portfolio" | "blog";
+  currentPage?: "portfolio" | "blog" | "resume";
 }
 
 export function Header({ currentPage = "portfolio" }: HeaderProps) {
@@ -44,6 +44,12 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
                   >
                     Blog
                   </Link>
+                  <Link
+                    href="/resume"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  >
+                    Resume
+                  </Link>
                   <a
                     href="#contact"
                     className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -51,7 +57,7 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
                     Contact
                   </a>
                 </>
-              ) : (
+              ) : currentPage === "blog" ? (
                 <>
                   <Link
                     href="/"
@@ -64,6 +70,33 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
                     className="text-sm text-gray-900 dark:text-gray-100 font-medium"
                   >
                     Blog
+                  </Link>
+                  <Link
+                    href="/resume"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  >
+                    Resume
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  >
+                    Portfolio
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href="/resume"
+                    className="text-sm text-gray-900 dark:text-gray-100 font-medium"
+                  >
+                    Resume
                   </Link>
                 </>
               )}

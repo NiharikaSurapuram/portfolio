@@ -53,7 +53,7 @@ export default function Portfolio() {
                   Contact
                 </a>
                 <a
-                  href="#"
+                  href="/resume"
                   className="inline-flex items-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <Download className="w-4 h-4 mr-2" />
