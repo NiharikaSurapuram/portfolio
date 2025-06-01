@@ -29,53 +29,51 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
       {/* Navigation */}
       <Header currentPage="blog" />
 
       {/* Header */}
-      <div className="bg-gray-50 dark:bg-gray-800/50 py-16 pt-24">
+      <div className="py-0 pt-32">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/blog"
-            className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
+            className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors mb-8 text-sm"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-3 h-3 mr-2" />
             Back to Blog
           </Link>
 
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight leading-tight">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-gray-500 dark:text-gray-400">
+          <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 dark:text-gray-500 mb-8">
             <div className="flex items-center">
-              <Calendar className="w-4 h-4 mr-1" />
+              <Calendar className="w-3 h-3 mr-1" />
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
-                month: "long",
+                month: "short",
                 day: "numeric",
               })}
             </div>
 
             <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-1" />
+              <Clock className="w-3 h-3 mr-1" />
               {readingTime} min read
             </div>
 
-            <div className="text-gray-600 dark:text-gray-300">
-              By {post.author}
-            </div>
+            <div>By {post.author}</div>
           </div>
 
           {post.tags && post.tags.length > 0 && (
-            <div className="flex items-center gap-2 mt-4">
-              <Tag className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            <div className="flex items-center gap-2 mb-8">
+              <Tag className="w-3 h-3 text-gray-500 dark:text-gray-500" />
               <div className="flex gap-2">
                 {post.tags.map((tag: string) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                    className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs"
                   >
                     {tag}
                   </span>
@@ -87,30 +85,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Content */}
-      <article className="max-w-4xl mx-auto px-6 py-12">
+      <article className="max-w-4xl mx-auto px-6 pb-24">
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <div
             dangerouslySetInnerHTML={{ __html: post.html }}
-            className="text-gray-800 dark:text-gray-200 leading-relaxed"
+            className="text-gray-700 dark:text-gray-300 leading-relaxed"
           />
         </div>
       </article>
 
       {/* Footer */}
       <div className="max-w-4xl mx-auto px-6 pb-12">
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-8">
+        <div className="border-t border-gray-100 dark:border-gray-800 pt-8">
           <div className="flex justify-between items-center">
             <Link
               href="/blog"
-              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
+              <ArrowLeft className="w-3 h-3 mr-2" />
               Back to Blog
             </Link>
 
             <Link
               href="/"
-              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm"
             >
               Portfolio
             </Link>

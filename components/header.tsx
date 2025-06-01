@@ -7,52 +7,46 @@ interface HeaderProps {
 
 export function Header({ currentPage = "portfolio" }: HeaderProps) {
   return (
-    <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4">
+    <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800/50 z-50">
+      <div className="max-w-5xl mx-auto px-6 py-5">
         <div className="flex justify-between items-center">
           <Link
             href="/"
-            className="text-xl font-semibold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+            className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
             Niharika Surapuram
           </Link>
-          <div className="flex items-center space-x-6">
-            <div className="hidden md:flex space-x-6">
+          <div className="flex items-center space-x-8">
+            <div className="hidden md:flex space-x-8">
               {currentPage === "portfolio" ? (
                 <>
                   <a
                     href="#about"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     About
                   </a>
                   <a
                     href="#experience"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     Experience
                   </a>
                   <a
                     href="#projects"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     Projects
                   </a>
-                  <a
-                    href="#education"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Education
-                  </a>
                   <Link
                     href="/blog"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     Blog
                   </Link>
                   <a
                     href="#contact"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     Contact
                   </a>
@@ -61,13 +55,13 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
                 <>
                   <Link
                     href="/"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     Portfolio
                   </Link>
                   <Link
                     href="/blog"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors font-medium"
+                    className="text-sm text-gray-900 dark:text-gray-100 font-medium"
                   >
                     Blog
                   </Link>
