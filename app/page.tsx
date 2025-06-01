@@ -1,4 +1,8 @@
 import { Header } from "@/components/header";
+import {
+  PersonStructuredData,
+  WebsiteStructuredData,
+} from "@/components/structured-data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   aboutDescription,
@@ -25,6 +29,9 @@ import Image from "next/image";
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
+      <PersonStructuredData />
+      <WebsiteStructuredData />
+
       {/* Navigation */}
       <Header currentPage="portfolio" />
 

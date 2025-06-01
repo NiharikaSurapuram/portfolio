@@ -1,7 +1,39 @@
 import { Header } from "@/components/header";
+import { personalInfo } from "@/lib/data";
 import { allPosts } from "content-collections";
 import { Calendar, Clock } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: `Technical blog by ${personalInfo.name}. Insights on Oracle Cloud Infrastructure, full-stack development, React, Next.js, and modern web technologies.`,
+  keywords: [
+    "blog",
+    "technical blog",
+    "Oracle Cloud",
+    "React",
+    "Next.js",
+    "full-stack development",
+    "web development",
+    "programming",
+    "technology",
+  ],
+  openGraph: {
+    title: `Blog | ${personalInfo.name}`,
+    description: `Technical insights and thoughts on technology, development, and cloud computing by ${personalInfo.name}.`,
+    url: "https://niharika.vercel.app/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: `Blog | ${personalInfo.name}`,
+    description: `Technical insights and thoughts on technology, development, and cloud computing by ${personalInfo.name}.`,
+  },
+  alternates: {
+    canonical: "https://niharika.vercel.app/blog",
+  },
+};
 
 export default function BlogPage() {
   // Sort posts by date (newest first)

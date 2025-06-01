@@ -1,6 +1,8 @@
 import { Header } from "@/components/header";
+import { personalInfo } from "@/lib/data";
 import { allPosts } from "content-collections";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -14,6 +16,53 @@ export async function generateStaticParams() {
   return (allPosts as any[]).map((post) => ({
     slug: post.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = (allPosts as any[]).find((post) => post.slug === slug);
+
+  if (!post || !post.published) {
+    return {
+      title: "Post Not Found",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  const readingTime = Math.ceil(
+    post.html.replace(/<[^>]*>/g, "").split(" ").length / 200
+  );
+
+  return {
+    title: post.title,
+    description: post.summary || post.description,
+    keywords: post.tags || [],
+    authors: [
+      {
+        name: post.author || personalInfo.name,
+      },
+    ],
+    openGraph: {
+      title: post.title,
+      description: post.summary || post.description,
+      url: `https://niharika.vercel.app/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author || personalInfo.name],
+      tags: post.tags || [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.summary || post.description,
+      creator: "@niharikasurapuram",
+    },
+    alternates: {
+      canonical: `https://niharika.vercel.app/blog/${slug}`,
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
