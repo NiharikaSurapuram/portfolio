@@ -1,5 +1,6 @@
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMarkdown } from "@content-collections/markdown";
+import rehypeHighlight from "rehype-highlight";
 import { z } from "zod";
 
 const posts = defineCollection({
@@ -15,7 +16,9 @@ const posts = defineCollection({
     published: z.boolean().default(true),
   }),
   transform: async (document, context) => {
-    const html = await compileMarkdown(context, document);
+    const html = await compileMarkdown(context, document, {
+      rehypePlugins: [rehypeHighlight],
+    });
     const slug = document._meta.path.replace(/\.md$/, "");
     return {
       ...document,

@@ -67,6 +67,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "highlight.js": "^11.11.1",
+    "rehype-highlight": "^7.0.2",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.3",
     "typescript": "^5",
