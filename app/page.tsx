@@ -171,10 +171,7 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section
-        id="experience"
-        className="py-24 px-6 bg-gray-50/30 dark:bg-gray-900/30"
-      >
+      <section id="experience" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             Experience
@@ -376,10 +373,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section
-        id="education"
-        className="py-24 px-6 bg-gray-50/30 dark:bg-gray-900/30"
-      >
+      <section id="education" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             Education
