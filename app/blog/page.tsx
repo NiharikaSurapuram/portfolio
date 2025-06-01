@@ -66,12 +66,12 @@ export default function BlogPage() {
       <Header currentPage="blog" />
 
       {/* Header */}
-      <div className="py-24 pt-32">
+      <div className="py-16 sm:py-24 pt-24 sm:pt-32">
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
             Blog
           </h1>
-          <p className="text-base text-gray-600 dark:text-gray-400">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
             Thoughts on technology, development, and my journey in the tech
             world
           </p>
@@ -79,26 +79,26 @@ export default function BlogPage() {
       </div>
 
       {/* Blog Posts */}
-      <div className="max-w-4xl mx-auto px-6 pb-24">
-        <div className="space-y-12">
+      <div className="max-w-4xl mx-auto px-6 pb-16 sm:pb-24">
+        <div className="space-y-8 sm:space-y-12">
           {sortedPosts.map((post, index) => (
             <article
               key={post.slug}
               className={`group ${
                 index !== sortedPosts.length - 1
-                  ? "border-b border-gray-100 dark:border-gray-800 pb-12"
+                  ? "border-b border-gray-100 dark:border-gray-800 pb-8 sm:pb-12"
                   : ""
               }`}
             >
               <Link href={post.url}>
-                <h2 className="text-xl font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
+                <h2 className="text-lg sm:text-xl font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
                   {post.title}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
                   {post.summary}
                 </p>
 
-                <div className="flex items-center gap-6 text-xs text-gray-500 dark:text-gray-500">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-gray-500 dark:text-gray-500">
                   <div className="flex items-center">
                     <Calendar className="w-3 h-3 mr-1" />
                     {new Date(post.date).toLocaleDateString("en-US", {
@@ -117,7 +117,7 @@ export default function BlogPage() {
                   </div>
 
                   {post.tags && post.tags.length > 0 && (
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {post.tags.slice(0, 2).map((tag) => (
                         <span
                           key={tag}
@@ -135,8 +135,8 @@ export default function BlogPage() {
         </div>
 
         {sortedPosts.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-500">
+          <div className="text-center py-8 sm:py-12">
+            <p className="text-gray-500 dark:text-gray-500 text-sm">
               No blog posts found.
             </p>
           </div>

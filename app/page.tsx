@@ -36,32 +36,32 @@ export default function Portfolio() {
       <Header currentPage="portfolio" />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-6">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-12 sm:gap-16 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 tracking-tight leading-tight">
                 {personalInfo.name}
               </h1>
-              <div className="space-y-4 mb-12">
-                <p className="text-xl text-gray-600 dark:text-gray-400 font-light">
+              <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-light">
                   {personalInfo.title}
                 </p>
-                <p className="text-base text-gray-500 dark:text-gray-500 leading-relaxed max-w-lg">
+                <p className="text-sm sm:text-base text-gray-500 dark:text-gray-500 leading-relaxed max-w-lg">
                   {personalInfo.description}
                 </p>
               </div>
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Contact
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Resume
@@ -75,7 +75,7 @@ export default function Portfolio() {
                   alt={personalInfo.name}
                   width={280}
                   height={280}
-                  className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                  className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover"
                   priority
                 />
               </div>
@@ -85,37 +85,37 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6">
+      <section id="about" className="py-16 sm:py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
             About
           </h2>
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid md:grid-cols-2 gap-12 sm:gap-16">
             <div className="space-y-6">
               {aboutDescription.map((paragraph, index) => (
                 <p
                   key={index}
-                  className="text-base text-gray-600 dark:text-gray-400 leading-relaxed"
+                  className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
                 >
                   {paragraph}
                 </p>
               ))}
               <div className="pt-4 space-y-3">
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                  <MapPin className="w-4 h-4 mr-3" />
+                <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+                  <MapPin className="w-4 h-4 mr-3 flex-shrink-0" />
                   <span>{personalInfo.location}</span>
                 </div>
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
-                  <Building2 className="w-4 h-4 mr-3" />
+                <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+                  <Building2 className="w-4 h-4 mr-3 flex-shrink-0" />
                   <span>{personalInfo.connections}</span>
                 </div>
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-8">
+              <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100 mb-6 sm:mb-8">
                 Technologies
               </h3>
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {Object.entries(techSkills).map(([category, skills]) => (
                   <div key={category}>
                     <h4 className="text-xs font-medium text-gray-500 dark:text-gray-500 mb-3 uppercase tracking-wider">
@@ -140,25 +140,25 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 px-6">
+      <section id="experience" className="py-16 sm:py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
             Experience
           </h2>
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
               <div
                 key={exp.company}
                 className={
                   index !== experiences.length - 1
-                    ? "border-b border-gray-100 dark:border-gray-800 pb-12"
+                    ? "border-b border-gray-100 dark:border-gray-800 pb-8 sm:pb-12"
                     : ""
                 }
               >
-                <div className="flex justify-between items-start mb-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6 gap-4">
                   <div className="flex items-start space-x-4">
                     {exp.logo ? (
-                      <Avatar className="w-10 h-10 rounded-lg">
+                      <Avatar className="w-10 h-10 rounded-lg flex-shrink-0">
                         <AvatarImage
                           src={exp.logo}
                           alt={`${exp.company} Logo`}
@@ -169,33 +169,33 @@ export default function Portfolio() {
                         </AvatarFallback>
                       </Avatar>
                     ) : (
-                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
                         <span className="text-white font-medium text-sm">
                           {exp.logoFallback}
                         </span>
                       </div>
                     )}
-                    <div>
-                      <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
                         {exp.role}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-medium">
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">
                         {exp.company}
                       </p>
-                      <p className="text-sm text-gray-500 dark:text-gray-500">
+                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">
                         {exp.type} • {exp.location}
                       </p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center">
+                  <div className="sm:text-right sm:flex-shrink-0">
+                    <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center sm:justify-end">
                       <Calendar className="w-3 h-3 mr-1" />
                       {exp.startDate} - {exp.endDate}
                     </span>
                   </div>
                 </div>
-                <div className="ml-14">
-                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-sm leading-relaxed">
+                <div className="ml-0 sm:ml-14">
+                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-xs sm:text-sm leading-relaxed">
                     {exp.responsibilities.map((responsibility, idx) => (
                       <li key={idx}>• {responsibility}</li>
                     ))}
@@ -208,18 +208,18 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-24 px-6">
+      <section id="projects" className="py-16 sm:py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
             Projects
           </h2>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {projects.map((project, index) => (
               <div key={index} className="group">
-                <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-xs sm:text-sm">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -248,41 +248,41 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-24 px-6">
+      <section id="education" className="py-16 sm:py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
             Education
           </h2>
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {education.map((edu, index) => (
               <div
                 key={edu.institution}
                 className={
                   index !== education.length - 1
-                    ? "border-b border-gray-100 dark:border-gray-800 pb-8"
+                    ? "border-b border-gray-100 dark:border-gray-800 pb-6 sm:pb-8"
                     : ""
                 }
               >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
                       {edu.institution}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                       {edu.degree}
                       {edu.field && `, ${edu.field}`}
                     </p>
-                    <p className="text-gray-500 dark:text-gray-500 text-xs">
+                    <p className="text-xs text-gray-500 dark:text-gray-500">
                       {edu.location}
                     </p>
                   </div>
-                  <div className="text-right">
-                    <span className="text-xs text-gray-500 dark:text-gray-500">
+                  <div className="sm:text-right sm:flex-shrink-0">
+                    <span className="text-xs text-gray-500 dark:text-gray-500 block">
                       {edu.endYear
                         ? `${edu.startYear} - ${edu.endYear}`
                         : edu.startYear}
                     </span>
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
                       Grade: {edu.grade}
                     </p>
                   </div>
@@ -294,15 +294,15 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 px-6">
+      <section id="contact" className="py-16 sm:py-24 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 tracking-tight">
             {contactInfo.title}
           </h2>
-          <p className="text-base text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
             {contactInfo.description}
           </p>
-          <div className="flex justify-center space-x-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8">
             {socialLinks.map((link) => {
               const IconComponent =
                 link.icon === "mail"
@@ -316,7 +316,7 @@ export default function Portfolio() {
                   href={link.url}
                   target={link.icon !== "mail" ? "_blank" : undefined}
                   rel={link.icon !== "mail" ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm"
                 >
                   <IconComponent className="w-4 h-4 mr-2" />
                   {link.name}
@@ -328,9 +328,9 @@ export default function Portfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-gray-100 dark:border-gray-800">
+      <footer className="py-8 sm:py-12 px-6 border-t border-gray-100 dark:border-gray-800">
         <div className="max-w-5xl mx-auto text-center">
-          <p className="text-gray-500 dark:text-gray-500 text-sm">
+          <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm">
             © {new Date().getFullYear()} {personalInfo.name}. All rights
             reserved.
           </p>

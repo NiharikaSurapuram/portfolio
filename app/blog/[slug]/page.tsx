@@ -98,21 +98,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <Header currentPage="blog" />
 
       {/* Header */}
-      <div className="py-0 pt-32">
+      <div className="py-0 pt-24 sm:pt-32">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/blog"
-            className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors mb-8 text-sm"
+            className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors mb-6 sm:mb-8 text-xs sm:text-sm"
           >
             <ArrowLeft className="w-3 h-3 mr-2" />
             Back to Blog
           </Link>
 
-          <h1 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-6 tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 tracking-tight leading-tight">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 dark:text-gray-500 mb-8">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-gray-500 dark:text-gray-500 mb-6 sm:mb-8">
             <div className="flex items-center">
               <Calendar className="w-3 h-3 mr-1" />
               {new Date(post.date).toLocaleDateString("en-US", {
@@ -127,13 +127,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {readingTime} min read
             </div>
 
-            <div>By {post.author}</div>
+            <div className="text-xs">By {post.author}</div>
           </div>
 
           {post.tags && post.tags.length > 0 && (
-            <div className="flex items-center gap-2 mb-8">
-              <Tag className="w-3 h-3 text-gray-500 dark:text-gray-500" />
-              <div className="flex gap-2">
+            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
+              <Tag className="w-3 h-3 text-gray-500 dark:text-gray-500 flex-shrink-0" />
+              <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag: string) => (
                   <span
                     key={tag}
@@ -149,22 +149,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Content */}
-      <article className="max-w-4xl mx-auto px-6 pb-24">
-        <div className="prose prose-sm dark:prose-invert max-w-none">
+      <article className="max-w-4xl mx-auto px-6 pb-16 sm:pb-24">
+        <div className="prose prose-sm sm:prose-lg dark:prose-invert max-w-none">
           <div
             dangerouslySetInnerHTML={{ __html: post.html }}
-            className="text-gray-700 dark:text-gray-300 leading-relaxed"
+            className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed"
           />
         </div>
       </article>
 
       {/* Footer */}
-      <div className="max-w-4xl mx-auto px-6 pb-12">
-        <div className="border-t border-gray-100 dark:border-gray-800 pt-8">
-          <div className="flex justify-between items-center">
+      <div className="max-w-4xl mx-auto px-6 pb-8 sm:pb-12">
+        <div className="border-t border-gray-100 dark:border-gray-800 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link
               href="/blog"
-              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm"
+              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-xs sm:text-sm"
             >
               <ArrowLeft className="w-3 h-3 mr-2" />
               Back to Blog
@@ -172,7 +172,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <Link
               href="/"
-              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-sm"
+              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-xs sm:text-sm"
             >
               Portfolio
             </Link>
