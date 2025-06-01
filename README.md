@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Niharika Surapuram - Portfolio Website
+
+A minimal, professional portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- **Clean, Minimal Design**: Professional layout with a focus on content
+- **Responsive**: Works perfectly on desktop, tablet, and mobile devices
+- **Fast Performance**: Built with Next.js for optimal loading speeds
+- **SEO Optimized**: Proper meta tags and semantic HTML structure
+- **Smooth Animations**: Subtle transitions and hover effects
+- **Accessible**: Following web accessibility best practices
+
+## Sections
+
+- **Hero**: Introduction with name, title, and call-to-action buttons
+- **About**: Personal description and technical skills
+- **Experience**: Work history with timeline layout
+- **Projects**: Showcase of key projects with tech stacks
+- **Contact**: Social links and contact information
+
+## Customization
+
+To personalize this portfolio for your own use:
+
+### 1. Update Personal Information
+
+Edit `app/page.tsx` and replace the following:
+
+- **Name**: Change "Niharika Surapuram" to your name
+- **Title**: Update "Software Engineer & Developer" to your role
+- **Description**: Modify the hero description and about section
+- **Location**: Update the location in the about section
+- **Email**: Replace "<niharika@example.com>" with your email
+- **Social Links**: Update LinkedIn and GitHub URLs
+
+### 2. Update Experience Section
+
+In the Experience section, replace the placeholder jobs with your actual work experience:
+
+- Company names
+- Job titles
+- Employment dates
+- Job descriptions and achievements
+
+### 3. Update Projects Section
+
+Replace the example projects with your own:
+
+- Project titles and descriptions
+- Technology stacks used
+- GitHub repository links
+- Live demo links
+
+### 4. Update Skills
+
+Modify the technical skills array in the About section to reflect your expertise.
+
+### 5. Update Metadata
+
+In `app/layout.tsx`, update the metadata:
+
+- Title
+- Description
+- Keywords
+- Author information
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- pnpm (recommended) or npm
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm build
+pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Font**: Inter (Google Fonts)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+This portfolio can be easily deployed to:
 
-To learn more about Next.js, take a look at the following resources:
+- **Vercel** (recommended for Next.js)
+- **Netlify**
+- **GitHub Pages**
+- **Any static hosting service**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For Vercel deployment:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy with zero configuration
 
-## Deploy on Vercel
+## Color Scheme
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The portfolio uses a minimal color palette:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Primary**: Gray-900 (#111827)
+- **Secondary**: Gray-600 (#4b5563)
+- **Background**: White (#ffffff)
+- **Accent**: Gray-50 (#f9fafb)
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+For questions or suggestions about this portfolio template, feel free to reach out!
