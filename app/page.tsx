@@ -217,6 +217,7 @@ export default function Portfolio() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
+                      "Oracle Cloud Infrastructure (OCI)",
                       "AWS",
                       "Amazon EKS",
                       "Amazon ECS",
@@ -224,6 +225,7 @@ export default function Portfolio() {
                       "Cloud Infrastructure",
                       "Cloud Consulting",
                       "Terraform",
+                      "Multi-Cloud Architecture",
                     ].map((skill) => (
                       <span
                         key={skill}
@@ -240,7 +242,19 @@ export default function Portfolio() {
                     Oracle Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {["Oracle Fusion Middleware", "OIC", "BIP"].map((skill) => (
+                    {[
+                      "Oracle Fusion Middleware",
+                      "Oracle Integration Cloud (OIC)",
+                      "Oracle BIP",
+                      "Oracle Database",
+                      "Oracle Cloud Infrastructure (OCI)",
+                      "Oracle APEX",
+                      "Oracle WebLogic Server",
+                      "Oracle SOA Suite",
+                      "Oracle Service Bus (OSB)",
+                      "Oracle Enterprise Manager",
+                      "Oracle Forms & Reports",
+                    ].map((skill) => (
                       <span
                         key={skill}
                         className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-sm rounded-full font-mono"
@@ -257,12 +271,14 @@ export default function Portfolio() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
+                      "Oracle Database",
                       "MySQL",
                       "PostgreSQL",
                       "Prisma ORM",
                       "Docker",
                       "Git",
                       "Data Analytics",
+                      "Database Performance Tuning",
                     ].map((skill) => (
                       <span
                         key={skill}
@@ -321,13 +337,18 @@ export default function Portfolio() {
               <div className="ml-16">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {[
-                    "Cloud Infrastructure",
-                    "Cloud Consulting",
+                    "Oracle Cloud Infrastructure (OCI)",
+                    "Oracle Integration Cloud (OIC)",
                     "Oracle Fusion Middleware",
+                    "Oracle Database",
                     "Oracle SQL",
                     "PL/SQL",
-                    "OIC",
-                    "BIP",
+                    "Oracle BIP",
+                    "Oracle WebLogic Server",
+                    "Oracle SOA Suite",
+                    "Oracle APEX",
+                    "Cloud Infrastructure",
+                    "Cloud Consulting",
                   ].map((skill) => (
                     <span
                       key={skill}
@@ -339,32 +360,44 @@ export default function Portfolio() {
                 </div>
                 <ul className="text-gray-600 dark:text-gray-300 space-y-2">
                   <li>
-                    • Working on cloud infrastructure solutions and consulting
-                    projects
+                    • Architecting and implementing Oracle Cloud Infrastructure
+                    (OCI) solutions for enterprise clients
                   </li>
                   <li>
-                    • Developing and maintaining Oracle Fusion Middleware
-                    applications
+                    • Developing Oracle Fusion Middleware applications and
+                    WebLogic Server configurations
                   </li>
                   <li>
-                    • Implementing Oracle Integration Cloud (OIC) solutions for
-                    enterprise integration
+                    • Building complex integration solutions using Oracle
+                    Integration Cloud (OIC) for seamless data flow
                   </li>
                   <li>
-                    • Creating business intelligence reports using Oracle BIP
-                    (Business Intelligence Publisher)
+                    • Designing and developing Oracle APEX applications for
+                    rapid application development
                   </li>
                   <li>
-                    • Writing complex PL/SQL procedures and Oracle SQL queries
-                    for data management
+                    • Creating comprehensive business intelligence reports and
+                    dashboards using Oracle BIP
                   </li>
                   <li>
-                    • Collaborating with cross-functional teams to deliver
-                    cloud-based solutions
+                    • Writing optimized PL/SQL procedures, functions, and
+                    packages for Oracle Database performance
                   </li>
                   <li>
-                    • Analyzing and optimizing cloud performance and cost
-                    efficiency
+                    • Implementing Oracle SOA Suite for service-oriented
+                    architecture solutions
+                  </li>
+                  <li>
+                    • Configuring Oracle Enterprise Manager for database
+                    monitoring and performance tuning
+                  </li>
+                  <li>
+                    • Collaborating with Oracle support teams and participating
+                    in Oracle technology forums
+                  </li>
+                  <li>
+                    • Conducting Oracle technology assessments and providing
+                    migration recommendations
                   </li>
                 </ul>
               </div>
@@ -468,6 +501,21 @@ export default function Portfolio() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {[
+              {
+                title: "Oracle Enterprise Integration Platform",
+                description:
+                  "Designed and implemented a comprehensive enterprise integration solution using Oracle Integration Cloud (OIC) and Fusion Middleware. Built seamless data flows between multiple Oracle and third-party systems, reducing manual processes by 80% and improving data accuracy.",
+                tech: [
+                  "Oracle Integration Cloud (OIC)",
+                  "Oracle Fusion Middleware",
+                  "Oracle Database",
+                  "PL/SQL",
+                  "Oracle SOA Suite",
+                  "Oracle WebLogic Server",
+                ],
+                link: "#",
+                icon: "🔗",
+              },
               {
                 title: "Art Gallery Database Management System",
                 description:
