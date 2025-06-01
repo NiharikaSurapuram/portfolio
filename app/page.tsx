@@ -337,7 +337,13 @@ export default function Portfolio() {
               </div>
               <div className="ml-16">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Next.js", "Prisma ORM"].map((skill) => (
+                  {[
+                    "Next.js",
+                    "Prisma ORM",
+                    "Java",
+                    "Spring Boot",
+                    "Terraform",
+                  ].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
@@ -350,6 +356,14 @@ export default function Portfolio() {
                   <li>
                     • Developed full-stack applications using Next.js and modern
                     web technologies
+                  </li>
+                  <li>
+                    • Built backend services with Java and Spring Boot for
+                    scalable application architecture
+                  </li>
+                  <li>
+                    • Implemented infrastructure as code using Terraform for
+                    cloud resource management
                   </li>
                   <li>
                     • Implemented database solutions using Prisma ORM for
