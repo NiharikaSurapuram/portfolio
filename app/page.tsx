@@ -250,10 +250,6 @@ export default function Portfolio() {
                       "Oracle Cloud Infrastructure (OCI)",
                       "Oracle APEX",
                       "Oracle WebLogic Server",
-                      "Oracle SOA Suite",
-                      "Oracle Service Bus (OSB)",
-                      "Oracle Enterprise Manager",
-                      "Oracle Forms & Reports",
                     ].map((skill) => (
                       <span
                         key={skill}
@@ -345,7 +341,6 @@ export default function Portfolio() {
                     "PL/SQL",
                     "Oracle BIP",
                     "Oracle WebLogic Server",
-                    "Oracle SOA Suite",
                     "Oracle APEX",
                     "Cloud Infrastructure",
                     "Cloud Consulting",
@@ -382,10 +377,6 @@ export default function Portfolio() {
                   <li>
                     • Writing optimized PL/SQL procedures, functions, and
                     packages for Oracle Database performance
-                  </li>
-                  <li>
-                    • Implementing Oracle SOA Suite for service-oriented
-                    architecture solutions
                   </li>
                   <li>
                     • Configuring Oracle Enterprise Manager for database
@@ -510,7 +501,6 @@ export default function Portfolio() {
                   "Oracle Fusion Middleware",
                   "Oracle Database",
                   "PL/SQL",
-                  "Oracle SOA Suite",
                   "Oracle WebLogic Server",
                 ],
                 link: "#",
