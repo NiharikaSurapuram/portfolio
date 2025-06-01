@@ -164,7 +164,7 @@ export default function Portfolio() {
               <div className="space-y-6">
                 <div>
                   <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
-                    Programming
+                    Programming Languages
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
@@ -173,6 +173,8 @@ export default function Portfolio() {
                       "Python",
                       "Java",
                       "TypeScript",
+                      "PL/SQL",
+                      "Oracle SQL",
                     ].map((skill) => (
                       <span
                         key={skill}
@@ -189,52 +191,86 @@ export default function Portfolio() {
                     Web Development
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {["HTML", "CSS", "React.js", "Next.js", "Node.js"].map(
-                      (skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm rounded-full font-mono"
-                        >
-                          {skill}
-                        </span>
-                      )
-                    )}
+                    {[
+                      "HTML",
+                      "CSS",
+                      "React.js",
+                      "Next.js",
+                      "Node.js",
+                      "Express.js",
+                      "REST APIs",
+                      "Web Technologies",
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-sm rounded-full font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 <div>
                   <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
-                    Databases & Cloud
+                    Cloud & Infrastructure
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {["MongoDB", "MySQL", "AWS Lambda", "AWS S3"].map(
-                      (skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm rounded-full font-mono"
-                        >
-                          {skill}
-                        </span>
-                      )
-                    )}
+                    {[
+                      "AWS",
+                      "Amazon EKS",
+                      "Amazon ECS",
+                      "AWS CodeBuild",
+                      "Cloud Infrastructure",
+                      "Cloud Consulting",
+                      "Terraform",
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm rounded-full font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
                 <div>
                   <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
-                    Tools & Others
+                    Oracle Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {["Git", "Docker", "Machine Learning", "Data Analysis"].map(
-                      (skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm rounded-full font-mono"
-                        >
-                          {skill}
-                        </span>
-                      )
-                    )}
+                    {["Oracle Fusion Middleware", "OIC", "BIP"].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-sm rounded-full font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wide">
+                    Databases & Tools
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "MySQL",
+                      "PostgreSQL",
+                      "Prisma ORM",
+                      "Docker",
+                      "Git",
+                      "Data Analytics",
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-sm rounded-full font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -284,7 +320,15 @@ export default function Portfolio() {
               </div>
               <div className="ml-16">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Cloud Infrastructure", "Cloud Consulting"].map((skill) => (
+                  {[
+                    "Cloud Infrastructure",
+                    "Cloud Consulting",
+                    "Oracle Fusion Middleware",
+                    "Oracle SQL",
+                    "PL/SQL",
+                    "OIC",
+                    "BIP",
+                  ].map((skill) => (
                     <span
                       key={skill}
                       className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
@@ -297,6 +341,22 @@ export default function Portfolio() {
                   <li>
                     • Working on cloud infrastructure solutions and consulting
                     projects
+                  </li>
+                  <li>
+                    • Developing and maintaining Oracle Fusion Middleware
+                    applications
+                  </li>
+                  <li>
+                    • Implementing Oracle Integration Cloud (OIC) solutions for
+                    enterprise integration
+                  </li>
+                  <li>
+                    • Creating business intelligence reports using Oracle BIP
+                    (Business Intelligence Publisher)
+                  </li>
+                  <li>
+                    • Writing complex PL/SQL procedures and Oracle SQL queries
+                    for data management
                   </li>
                   <li>
                     • Collaborating with cross-functional teams to deliver
@@ -339,10 +399,15 @@ export default function Portfolio() {
                 <div className="flex flex-wrap gap-2 mb-4">
                   {[
                     "Next.js",
-                    "Prisma ORM",
+                    "React.js",
+                    "Node.js",
+                    "Express.js",
                     "Java",
-                    "Spring Boot",
                     "Terraform",
+                    "AWS",
+                    "Docker",
+                    "PostgreSQL",
+                    "Prisma ORM",
                   ].map((skill) => (
                     <span
                       key={skill}
@@ -354,24 +419,32 @@ export default function Portfolio() {
                 </div>
                 <ul className="text-gray-600 dark:text-gray-300 space-y-2">
                   <li>
-                    • Developed full-stack applications using Next.js and modern
-                    web technologies
+                    • Developed full-stack web applications using Next.js,
+                    React.js, and modern JavaScript
                   </li>
                   <li>
-                    • Built backend services with Java and Spring Boot for
-                    scalable application architecture
+                    • Built scalable backend services with Node.js, Express.js,
+                    and Java
                   </li>
                   <li>
-                    • Implemented infrastructure as code using Terraform for
+                    • Implemented infrastructure as code using Terraform for AWS
                     cloud resource management
                   </li>
                   <li>
-                    • Implemented database solutions using Prisma ORM for
-                    efficient data management
+                    • Worked with containerization using Docker and AWS services
+                    (EKS, ECS, CodeBuild)
+                  </li>
+                  <li>
+                    • Designed and implemented PostgreSQL databases with Prisma
+                    ORM
+                  </li>
+                  <li>
+                    • Developed REST APIs and integrated various web
+                    technologies
                   </li>
                   <li>
                     • Collaborated with the development team on innovative
-                    startup projects
+                    startup projects using Git workflows
                   </li>
                   <li>
                     • Gained hands-on experience in agile development
