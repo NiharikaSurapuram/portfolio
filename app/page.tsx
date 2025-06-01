@@ -173,14 +173,14 @@ export default function Portfolio() {
       {/* Experience Section */}
       <section
         id="experience"
-        className="py-24 px-6 bg-gray-50/50 dark:bg-gray-900/50"
+        className="py-24 px-6 bg-gray-50/30 dark:bg-gray-900/30"
       >
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 text-center tracking-tight">
             Experience
           </h2>
           <div className="space-y-12">
-            <div className="bg-white dark:bg-gray-950 p-8 rounded-lg border border-gray-100 dark:border-gray-800">
+            <div className="border-b border-gray-100 dark:border-gray-800 pb-12">
               <div className="flex justify-between items-start mb-6">
                 <div className="flex items-start space-x-4">
                   <Avatar className="w-10 h-10 rounded-lg">
@@ -206,8 +206,8 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-500 flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
+                  <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center">
+                    <Calendar className="w-3 h-3 mr-1" />
                     Aug 2024 - Present
                   </span>
                 </div>
@@ -236,7 +236,7 @@ export default function Portfolio() {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-gray-950 p-8 rounded-lg border border-gray-100 dark:border-gray-800">
+            <div>
               <div className="flex justify-between items-start mb-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center">
@@ -255,8 +255,8 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-500 flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
+                  <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center">
+                    <Calendar className="w-3 h-3 mr-1" />
                     Feb 2024 - Jul 2024
                   </span>
                 </div>
