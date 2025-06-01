@@ -250,6 +250,7 @@ export default function Portfolio() {
                       "Oracle Cloud Infrastructure (OCI)",
                       "Oracle APEX",
                       "Oracle WebLogic Server",
+                      "Oracle Red Wood",
                     ].map((skill) => (
                       <span
                         key={skill}
