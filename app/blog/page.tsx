@@ -17,7 +17,7 @@ export default function BlogPage() {
       {/* Header */}
       <div className="py-24 pt-32">
         <div className="max-w-4xl mx-auto px-6">
-          <h1 className="text-4xl font-light text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
+          <h1 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 tracking-tight">
             Blog
           </h1>
           <p className="text-base text-gray-600 dark:text-gray-400">

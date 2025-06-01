@@ -117,7 +117,7 @@ export default function Portfolio() {
                     ].map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
                       >
                         {skill}
                       </span>
@@ -139,7 +139,7 @@ export default function Portfolio() {
                     ].map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
                       >
                         {skill}
                       </span>
@@ -156,7 +156,7 @@ export default function Portfolio() {
                       (skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full"
+                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
                         >
                           {skill}
                         </span>
@@ -463,7 +463,7 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-24 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-8 tracking-tight">
+          <h2 className="text-3xl font-light text-gray-900 dark:text-gray-100 mb-16 tracking-tight">
             Contact
           </h2>
           <p className="text-base text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
