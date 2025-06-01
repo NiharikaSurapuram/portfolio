@@ -1,4 +1,4 @@
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Header } from "@/components/header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Building2,
@@ -11,62 +11,12 @@ import {
   MapPin,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Niharika Surapuram
-            </h1>
-            <div className="flex items-center space-x-6">
-              <div className="hidden md:flex space-x-6">
-                <a
-                  href="#about"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="#experience"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#projects"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#education"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Education
-                </a>
-                <Link
-                  href="/blog"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Blog
-                </Link>
-                <a
-                  href="#contact"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-              </div>
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="portfolio" />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-6">

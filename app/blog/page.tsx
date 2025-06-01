@@ -1,3 +1,4 @@
+import { Header } from "@/components/header";
 import { allPosts } from "content-collections";
 import { Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
@@ -10,8 +11,11 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+      {/* Navigation */}
+      <Header currentPage="blog" />
+
       {/* Header */}
-      <div className="bg-gray-50 dark:bg-gray-800/50 py-16">
+      <div className="bg-gray-50 dark:bg-gray-800/50 py-16 pt-24">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Blog
@@ -85,16 +89,6 @@ export default function BlogPage() {
             </p>
           </div>
         )}
-      </div>
-
-      {/* Back to Home */}
-      <div className="max-w-4xl mx-auto px-6 pb-12">
-        <Link
-          href="/"
-          className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-        >
-          ← Back to Portfolio
-        </Link>
       </div>
     </div>
   );

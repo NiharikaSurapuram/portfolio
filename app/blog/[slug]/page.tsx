@@ -1,3 +1,4 @@
+import { Header } from "@/components/header";
 import { allPosts } from "content-collections";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
@@ -10,14 +11,14 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return (allPosts as any[]).map((post) => ({
     slug: post.slug,
   }));
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = allPosts.find((post) => post.slug === slug);
+  const post = (allPosts as any[]).find((post) => post.slug === slug);
 
   if (!post || !post.published) {
     notFound();
@@ -29,8 +30,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+      {/* Navigation */}
+      <Header currentPage="blog" />
+
       {/* Header */}
-      <div className="bg-gray-50 dark:bg-gray-800/50 py-16">
+      <div className="bg-gray-50 dark:bg-gray-800/50 py-16 pt-24">
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/blog"
