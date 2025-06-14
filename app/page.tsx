@@ -33,8 +33,8 @@ export default function Portfolio() {
       <WebsiteStructuredData />
 
       {/* Navigation */}
-      <Header currentPage="portfolio" />
 
+      <Header currentPage="portfolio" />
       {/* Hero Section */}
       <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-6">
         <div className="max-w-5xl mx-auto">
