@@ -1,6 +1,6 @@
 # Niharika Surapuram - Portfolio Website
 
-A minimal, professional portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+A minimal, professional portfolio website built with Next.js, TypeScript, and Tailwind CSS
 
 ## Features
 
