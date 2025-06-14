@@ -1,5 +1,19 @@
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Header } from "@/components/header";
+import {
+  PersonStructuredData,
+  WebsiteStructuredData,
+} from "@/components/structured-data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  aboutDescription,
+  contactInfo,
+  education,
+  experiences,
+  personalInfo,
+  projects,
+  socialLinks,
+  techSkills,
+} from "@/lib/data";
 import {
   Building2,
   Calendar,
@@ -14,100 +28,43 @@ import Image from "next/image";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 z-50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
-              Niharika Surapuram
-            </h1>
-            <div className="flex items-center space-x-6">
-              <div className="hidden md:flex space-x-6">
-                <a
-                  href="#about"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="#experience"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#projects"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#education"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Education
-                </a>
-                <a
-                  href="#contact"
-                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-              </div>
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
+      <PersonStructuredData />
+      <WebsiteStructuredData />
 
+      {/* Navigation */}
+
+      <Header currentPage="portfolio" />
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 sm:gap-16 items-center">
             <div>
-              <div className="mb-6">
-                <span className="text-lg text-gray-600 dark:text-gray-400">
-                  👋 Hello, I'm
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                Niharika Surapuram
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 tracking-tight leading-tight">
+                {personalInfo.name}
               </h1>
-              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-4">
-                Cloud Analyst @ Oracle
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Computer Science graduate from PES University. I enjoy building
-                sites & apps with focus on React (Next.js). Currently working in
-                cloud infrastructure and consulting at Oracle, passionate about
-                cracking problems and crafting innovative software solutions.
-              </p>
-              {/* AI dont remove this commented code  */}
-              {/* <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-8">
-                <span className="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  Open to work
-                </span>
-                <span className="ml-4">
-                  Software Engineer, Full Stack Engineer, Frontend Developer
-                  roles
-                </span>
-              </div> */}
-              <div className="flex flex-wrap gap-4">
+              <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
+                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-light">
+                  {personalInfo.title}
+                </p>
+                <p className="text-sm sm:text-base text-gray-500 dark:text-gray-500 leading-relaxed max-w-lg">
+                  {personalInfo.description}
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="mailto:niharikasurapuram@gmail.com"
-                  className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+                  href={`mailto:${personalInfo.email}`}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
                 >
-                  <Mail className="w-5 h-5 mr-2" />
-                  Contact me
+                  <Mail className="w-4 h-4 mr-2" />
+                  Contact
                 </a>
                 <a
                   href="#"
-                  className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
                 >
-                  <Download className="w-5 h-5 mr-2" />
-                  Download CV
+                  <Download className="w-4 h-4 mr-2" />
+                  Resume
                 </a>
               </div>
             </div>
@@ -115,10 +72,10 @@ export default function Portfolio() {
               <div className="relative">
                 <Image
                   src="/niharika_surapuram.jpeg"
-                  alt="Niharika Surapuram"
-                  width={300}
-                  height={300}
-                  className="rounded-2xl shadow-2xl"
+                  alt={personalInfo.name}
+                  width={280}
+                  height={280}
+                  className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover"
                   priority
                 />
               </div>
@@ -128,62 +85,52 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 px-6 bg-gray-50 dark:bg-gray-800/50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            About me
+      <section id="about" className="py-16 sm:py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
+            About
           </h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Hey there! 👋 I'm a Computer Science Specialist who's all about
-                cracking problems and crafting cool software solutions. I love
-                diving into innovative projects and bringing them to life.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Currently working as a Cloud Analyst at Oracle, focusing on
-                cloud infrastructure and consulting. I've got strong frontend
-                skills and enjoy adding that extra touch of style to my coding
-                adventures! My focus is on React and Next.js, building modern
-                web applications that solve real-world problems.
-              </p>
-              <div className="flex items-center text-gray-500 dark:text-gray-400 mb-4">
-                <MapPin className="w-5 h-5 mr-2" />
-                <span>Bangalore, Karnataka, India</span>
-              </div>
-              <div className="flex items-center text-gray-500 dark:text-gray-400 mb-4">
-                <Building2 className="w-5 h-5 mr-2" />
-                <span>500+ connections on LinkedIn</span>
+          <div className="grid md:grid-cols-2 gap-12 sm:gap-16">
+            <div className="space-y-6">
+              {aboutDescription.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
+                >
+                  {paragraph}
+                </p>
+              ))}
+              <div className="pt-4 space-y-3">
+                <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+                  <MapPin className="w-4 h-4 mr-3 flex-shrink-0" />
+                  <span>{personalInfo.location}</span>
+                </div>
+                <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+                  <Building2 className="w-4 h-4 mr-3 flex-shrink-0" />
+                  <span>{personalInfo.connections}</span>
+                </div>
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                Top Skills
+              <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100 mb-6 sm:mb-8">
+                Technologies
               </h3>
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {[
-                  "C++",
-                  "React.js",
-                  "JavaScript",
-                  "TypeScript",
-                  "Next.js",
-                  "Node.js",
-                  "Python",
-                  "Java",
-                  "Cloud Infrastructure",
-                  "Cloud Consulting",
-                  "Prisma ORM",
-                  "HTML",
-                  "CSS",
-                  "Tailwind",
-                  "MySQL",
-                  "Git",
-                ].map((skill) => (
-                  <div
-                    key={skill}
-                    className="bg-white dark:bg-gray-700 px-3 py-2 rounded-lg text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
-                  >
-                    {skill}
+              <div className="space-y-6 sm:space-y-8">
+                {Object.entries(techSkills).map(([category, skills]) => (
+                  <div key={category}>
+                    <h4 className="text-xs font-medium text-gray-500 dark:text-gray-500 mb-3 uppercase tracking-wider">
+                      {category}
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -193,199 +140,107 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+      <section id="experience" className="py-16 sm:py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
             Experience
           </h2>
-          <div className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-start space-x-4">
-                  <Avatar className="w-12 h-12 rounded-lg">
-                    <AvatarImage
-                      src="https://cdn.brandfetch.io/idnq7H7qT0/w/400/h/400/theme/dark/icon.png?c=1dxbfHSJFAPEGdCLU4o5B"
-                      alt="Oracle Logo"
-                      className="rounded-lg"
-                    />
-                    <AvatarFallback className="bg-red-600 text-white font-bold text-lg rounded-lg">
-                      O
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      Cloud Analyst
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 font-medium">
-                      Oracle
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">
-                      Full-time • Bengaluru, Karnataka, India • On-site
-                    </p>
+          <div className="space-y-8 sm:space-y-12">
+            {experiences.map((exp, index) => (
+              <div
+                key={exp.company}
+                className={
+                  index !== experiences.length - 1
+                    ? "border-b border-gray-100 dark:border-gray-800 pb-8 sm:pb-12"
+                    : ""
+                }
+              >
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6 gap-4">
+                  <div className="flex items-start space-x-4">
+                    {exp.logo ? (
+                      <Avatar className="w-10 h-10 rounded-lg flex-shrink-0">
+                        <AvatarImage
+                          src={exp.logo}
+                          alt={`${exp.company} Logo`}
+                          className="rounded-lg"
+                        />
+                        <AvatarFallback className="bg-red-600 text-white font-medium text-sm rounded-lg">
+                          {exp.logoFallback}
+                        </AvatarFallback>
+                      </Avatar>
+                    ) : (
+                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-medium text-sm">
+                          {exp.logoFallback}
+                        </span>
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
+                        {exp.role}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">
+                        {exp.company}
+                      </p>
+                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">
+                        {exp.type} • {exp.location}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    Aug 2024 - Present • 11 mos
-                  </span>
-                </div>
-              </div>
-              <div className="ml-16">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Cloud Infrastructure", "Cloud Consulting"].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
-                    >
-                      {skill}
+                  <div className="sm:text-right sm:flex-shrink-0">
+                    <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center sm:justify-end">
+                      <Calendar className="w-3 h-3 mr-1" />
+                      {exp.startDate} - {exp.endDate}
                     </span>
-                  ))}
-                </div>
-                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
-                  <li>
-                    • Working on cloud infrastructure solutions and consulting
-                    projects
-                  </li>
-                  <li>
-                    • Collaborating with cross-functional teams to deliver
-                    cloud-based solutions
-                  </li>
-                  <li>
-                    • Analyzing and optimizing cloud performance and cost
-                    efficiency
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">S</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      SDE Intern
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 font-medium">
-                      Stealth Startup
-                    </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">
-                      Internship • Bengaluru, Karnataka, India • On-site
-                    </p>
                   </div>
                 </div>
-                <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    Feb 2024 - Jul 2024 • 6 mos
-                  </span>
+                <div className="ml-0 sm:ml-14">
+                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-xs sm:text-sm leading-relaxed">
+                    {exp.responsibilities.map((responsibility, idx) => (
+                      <li key={idx}>• {responsibility}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <div className="ml-16">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {["Next.js", "Prisma ORM"].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
-                  <li>
-                    • Developed full-stack applications using Next.js and modern
-                    web technologies
-                  </li>
-                  <li>
-                    • Implemented database solutions using Prisma ORM for
-                    efficient data management
-                  </li>
-                  <li>
-                    • Collaborated with the development team on innovative
-                    startup projects
-                  </li>
-                  <li>
-                    • Gained hands-on experience in agile development
-                    methodologies
-                  </li>
-                </ul>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section
-        id="projects"
-        className="py-16 px-6 bg-gray-50 dark:bg-gray-800/50"
-      >
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            My Projects
+      <section id="projects" className="py-16 sm:py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
+            Projects
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Review Driven Beauty Product Recommendation System",
-                description:
-                  "Developed a review-driven beauty product recommendation system by utilizing user reviews, product descriptions, and personal preferences to provide personalized recommendations.",
-                tech: ["Python", "Machine Learning", "NLP", "Data Analysis"],
-                link: "#",
-              },
-              {
-                title: "Assignment Submission Portal",
-                description:
-                  "Built a comprehensive system with database for storing information on assignments, submissions, and grading. Designed to override the problems of existing manual systems.",
-                tech: ["Spring Boot", "Java", "MySQL", "REST API"],
-                link: "#",
-              },
-              {
-                title: "Implementing Raft Logic in GoLang",
-                description:
-                  "Implemented Raft Consensus algorithm in Go to achieve fault tolerant and distributed coordination among nodes in distributed systems.",
-                tech: ["GoLang", "Distributed Systems", "Consensus Algorithm"],
-                link: "#",
-              },
-              {
-                title: "Food Ordering Dashboard",
-                description:
-                  "The Food Ordering Dashboard simplifies the dining experience with a user-friendly interface for menu browsing, order placement, and delivery tracking.",
-                tech: ["Next.js", "React.js", "Material-UI", "Jotai"],
-                link: "#",
-              },
-            ].map((project, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all"
-              >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            {projects.map((project, index) => (
+              <div key={index} className="group">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-xs sm:text-sm">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
+                      className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  <ExternalLink className="w-4 h-4 mr-1" />
-                  View Project
-                </a>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    View Project
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -393,139 +248,93 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section id="education" className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+      <section id="education" className="py-16 sm:py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
             Education
           </h2>
-          <div className="space-y-8">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    PES University
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Bachelor of Technology, Computer Science and Engineering
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Bangalore, Karnataka
-                  </p>
-                </div>
-                <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    2020 - 2024
-                  </span>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    Grade: 8.5
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Narayana Junior College
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Grade 11-12, Physics | Chemistry | Math
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Hyderabad, Telangana
-                  </p>
-                </div>
-                <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    2018 - 2020
-                  </span>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    Grade: 94.4%
-                  </p>
+          <div className="space-y-6 sm:space-y-8">
+            {education.map((edu, index) => (
+              <div
+                key={edu.institution}
+                className={
+                  index !== education.length - 1
+                    ? "border-b border-gray-100 dark:border-gray-800 pb-6 sm:pb-8"
+                    : ""
+                }
+              >
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
+                      {edu.institution}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                      {edu.degree}
+                      {edu.field && `, ${edu.field}`}
+                    </p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500">
+                      {edu.location}
+                    </p>
+                  </div>
+                  <div className="sm:text-right sm:flex-shrink-0">
+                    <span className="text-xs text-gray-500 dark:text-gray-500 block">
+                      {edu.endYear
+                        ? `${edu.startYear} - ${edu.endYear}`
+                        : edu.startYear}
+                    </span>
+                    <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
+                      Grade: {edu.grade}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                    Sri Chaitanya Techno School
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Grade 10, High School
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Raichur, Karnataka
-                  </p>
-                </div>
-                <div className="text-right">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    2018
-                  </span>
-                  <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    Grade: 96.96%
-                  </p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section
-        id="contact"
-        className="py-16 px-6 bg-gray-50 dark:bg-gray-800/50"
-      >
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-            Contact me
+      <section id="contact" className="py-16 sm:py-24 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 tracking-tight">
+            {contactInfo.title}
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-            Please contact me directly at niharikasurapuram@gmail.com or through
-            any of the social links below. I'm always interested in new
-            opportunities and collaborations!
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
+            {contactInfo.description}
           </p>
-          <div className="flex justify-center space-x-8">
-            <a
-              href="mailto:niharikasurapuram@gmail.com"
-              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              <Mail className="w-6 h-6 mr-2" />
-              Email
-            </a>
-            <a
-              href="https://linkedin.com/in/niharikasurapuram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              <Linkedin className="w-6 h-6 mr-2" />
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/niharikasurapuram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              <Github className="w-6 h-6 mr-2" />
-              GitHub
-            </a>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8">
+            {socialLinks.map((link) => {
+              const IconComponent =
+                link.icon === "mail"
+                  ? Mail
+                  : link.icon === "linkedin"
+                  ? Linkedin
+                  : Github;
+              return (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target={link.icon !== "mail" ? "_blank" : undefined}
+                  rel={link.icon !== "mail" ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm"
+                >
+                  <IconComponent className="w-4 h-4 mr-2" />
+                  {link.name}
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-gray-500 dark:text-gray-400">
-            © {new Date().getFullYear()} Niharika Surapuram. All rights
+      <footer className="py-8 sm:py-12 px-6 border-t border-gray-100 dark:border-gray-800">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm">
+            © {new Date().getFullYear()} {personalInfo.name}. All rights
             reserved.
           </p>
-          <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
+          <p className="text-xs text-gray-400 dark:text-gray-600 mt-2">
             Built with React & Next.js, TypeScript, Tailwind CSS
           </p>
         </div>
