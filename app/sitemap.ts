@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Dynamic blog posts
-  const blogPosts = (allPosts as any[])
+  const blogPosts = allPosts
     .filter((post) => post.published)
     .map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,

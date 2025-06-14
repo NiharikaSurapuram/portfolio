@@ -13,7 +13,7 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-  return (allPosts as any[]).map((post) => ({
+  return allPosts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -22,7 +22,7 @@ export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = (allPosts as any[]).find((post) => post.slug === slug);
+  const post = allPosts.find((post) => post.slug === slug);
 
   if (!post || !post.published) {
     return {
@@ -31,19 +31,13 @@ export async function generateMetadata({
     };
   }
 
-  const readingTime = Math.ceil(
-    post.html.replace(/<[^>]*>/g, "").split(" ").length / 200
-  );
-
   const ogImageUrl = `/api/og/dark?title=${encodeURIComponent(
     post.title
-  )}&description=${encodeURIComponent(
-    post.summary || post.description
-  )}&type=post`;
+  )}&description=${encodeURIComponent(post.summary)}&type=post`;
 
   return {
     title: post.title,
-    description: post.summary || post.description,
+    description: post.summary,
     keywords: post.tags || [],
     authors: [
       {
@@ -52,7 +46,7 @@ export async function generateMetadata({
     ],
     openGraph: {
       title: post.title,
-      description: post.summary || post.description,
+      description: post.summary,
       url: `https://niharika.vercel.app/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
@@ -70,7 +64,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.summary || post.description,
+      description: post.summary,
       creator: "@niharikasurapuram",
       images: [ogImageUrl],
     },
@@ -82,7 +76,7 @@ export async function generateMetadata({
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = (allPosts as any[]).find((post) => post.slug === slug);
+  const post = allPosts.find((post) => post.slug === slug);
 
   if (!post || !post.published) {
     notFound();
@@ -93,28 +87,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
+    <div className="min-h-screen bg-white transition-colors dark:bg-gray-950">
       {/* Navigation */}
       <Header currentPage="blog" />
 
       {/* Header */}
       <div className="py-0 pt-24 sm:pt-32">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="px-6 mx-auto max-w-4xl">
           <Link
             href="/blog"
-            className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors mb-6 sm:mb-8 text-xs sm:text-sm"
+            className="inline-flex items-center mb-6 text-xs text-gray-500 transition-colors dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 sm:mb-8 sm:text-sm"
           >
-            <ArrowLeft className="w-3 h-3 mr-2" />
+            <ArrowLeft className="mr-2 w-3 h-3" />
             Back to Blog
           </Link>
 
-          <h1 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 tracking-tight leading-tight">
+          <h1 className="mb-4 text-2xl font-light tracking-tight leading-tight text-gray-900 sm:text-3xl dark:text-gray-100 sm:mb-6">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-gray-500 dark:text-gray-500 mb-6 sm:mb-8">
+          <div className="flex flex-wrap gap-4 items-center mb-6 text-xs text-gray-500 sm:gap-6 dark:text-gray-500 sm:mb-8">
             <div className="flex items-center">
-              <Calendar className="w-3 h-3 mr-1" />
+              <Calendar className="mr-1 w-3 h-3" />
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -123,7 +117,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             <div className="flex items-center">
-              <Clock className="w-3 h-3 mr-1" />
+              <Clock className="mr-1 w-3 h-3" />
               {readingTime} min read
             </div>
 
@@ -131,13 +125,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 mb-6 sm:mb-8">
-              <Tag className="w-3 h-3 text-gray-500 dark:text-gray-500 flex-shrink-0" />
+            <div className="flex flex-wrap gap-2 items-center mb-6 sm:mb-8">
+              <Tag className="flex-shrink-0 w-3 h-3 text-gray-500 dark:text-gray-500" />
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag: string) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs"
+                    className="px-2 py-1 text-xs text-gray-600 bg-gray-100 rounded dark:bg-gray-800 dark:text-gray-400"
                   >
                     {tag}
                   </span>
@@ -149,30 +143,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       {/* Content */}
-      <article className="max-w-4xl mx-auto px-6 pb-16 sm:pb-24">
-        <div className="prose prose-sm sm:prose-lg dark:prose-invert max-w-none">
+      <article className="px-6 pb-16 mx-auto max-w-4xl sm:pb-24">
+        <div className="max-w-none prose prose-sm sm:prose-lg dark:prose-invert">
           <div
             dangerouslySetInnerHTML={{ __html: post.html }}
-            className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed"
+            className="text-sm leading-relaxed text-gray-700 sm:text-base dark:text-gray-300"
           />
         </div>
       </article>
 
       {/* Footer */}
-      <div className="max-w-4xl mx-auto px-6 pb-8 sm:pb-12">
-        <div className="border-t border-gray-100 dark:border-gray-800 pt-6 sm:pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div className="px-6 pb-8 mx-auto max-w-4xl sm:pb-12">
+        <div className="pt-6 border-t border-gray-100 dark:border-gray-800 sm:pt-8">
+          <div className="flex flex-col gap-4 justify-between items-center sm:flex-row">
             <Link
               href="/blog"
-              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-xs sm:text-sm"
+              className="inline-flex items-center text-xs text-gray-500 transition-colors dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 sm:text-sm"
             >
-              <ArrowLeft className="w-3 h-3 mr-2" />
+              <ArrowLeft className="mr-2 w-3 h-3" />
               Back to Blog
             </Link>
 
             <Link
               href="/"
-              className="inline-flex items-center text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-xs sm:text-sm"
+              className="inline-flex items-center text-xs text-gray-500 transition-colors dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 sm:text-sm"
             >
               Portfolio
             </Link>
