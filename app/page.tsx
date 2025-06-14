@@ -1,5 +1,8 @@
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
+  Building2,
+  Calendar,
   Download,
   ExternalLink,
   Github,
@@ -29,6 +32,12 @@ export default function Portfolio() {
                 </a>
                 <a
                   href="#experience"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                >
+                  Experience
+                </a>
+                <a
+                  href="#projects"
                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   Projects
@@ -65,14 +74,26 @@ export default function Portfolio() {
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 Niharika Surapuram
               </h1>
-              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6">
-                Full-Stack Developer
+              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-4">
+                Cloud Analyst @ Oracle
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                I enjoy building sites & apps. My focus is React (Next.js).
-                Computer Science graduate who's passionate about cracking
-                problems and crafting innovative software solutions.
+                Computer Science graduate from PES University. I enjoy building
+                sites & apps with focus on React (Next.js). Currently working in
+                cloud infrastructure and consulting at Oracle, passionate about
+                cracking problems and crafting innovative software solutions.
               </p>
+              {/* AI dont remove this commented code  */}
+              {/* <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-8">
+                <span className="inline-flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                  Open to work
+                </span>
+                <span className="ml-4">
+                  Software Engineer, Full Stack Engineer, Frontend Developer
+                  roles
+                </span>
+              </div> */}
               <div className="flex flex-wrap gap-4">
                 <a
                   href="mailto:niharikasurapuram@gmail.com"
@@ -115,44 +136,48 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                Hey there! 👋 I'm a Computer Science graduate from PES
-                University who's all about cracking problems and crafting cool
-                software solutions. I love diving into innovative projects and
-                bringing them to life.
+                Hey there! 👋 I'm a Computer Science Specialist who's all about
+                cracking problems and crafting cool software solutions. I love
+                diving into innovative projects and bringing them to life.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                I've got strong frontend skills and enjoy adding that extra
-                touch of style to my coding adventures! My focus is on React and
-                Next.js, building modern web applications that solve real-world
-                problems.
+                Currently working as a Cloud Analyst at Oracle, focusing on
+                cloud infrastructure and consulting. I've got strong frontend
+                skills and enjoy adding that extra touch of style to my coding
+                adventures! My focus is on React and Next.js, building modern
+                web applications that solve real-world problems.
               </p>
               <div className="flex items-center text-gray-500 dark:text-gray-400 mb-4">
                 <MapPin className="w-5 h-5 mr-2" />
-                <span>Bangalore, Karnataka</span>
+                <span>Bangalore, Karnataka, India</span>
+              </div>
+              <div className="flex items-center text-gray-500 dark:text-gray-400 mb-4">
+                <Building2 className="w-5 h-5 mr-2" />
+                <span>500+ connections on LinkedIn</span>
               </div>
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-                Technical Skills
+                Top Skills
               </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
+                  "C++",
+                  "React.js",
                   "JavaScript",
                   "TypeScript",
-                  "React",
                   "Next.js",
                   "Node.js",
                   "Python",
                   "Java",
-                  "C++",
+                  "Cloud Infrastructure",
+                  "Cloud Consulting",
+                  "Prisma ORM",
                   "HTML",
                   "CSS",
                   "Tailwind",
                   "MySQL",
                   "Git",
-                  "AWS",
-                  "Express",
-                  "Spring Boot",
                 ].map((skill) => (
                   <div
                     key={skill}
@@ -167,8 +192,138 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Experience Section */}
       <section id="experience" className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+            Experience
+          </h2>
+          <div className="space-y-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all">
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex items-start space-x-4">
+                  <Avatar className="w-12 h-12 rounded-lg">
+                    <AvatarImage
+                      src="https://cdn.brandfetch.io/idnq7H7qT0/w/400/h/400/theme/dark/icon.png?c=1dxbfHSJFAPEGdCLU4o5B"
+                      alt="Oracle Logo"
+                      className="rounded-lg"
+                    />
+                    <AvatarFallback className="bg-red-600 text-white font-bold text-lg rounded-lg">
+                      O
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                      Cloud Analyst
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 font-medium">
+                      Oracle
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      Full-time • Bengaluru, Karnataka, India • On-site
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    Aug 2024 - Present • 11 mos
+                  </span>
+                </div>
+              </div>
+              <div className="ml-16">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Cloud Infrastructure", "Cloud Consulting"].map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                  <li>
+                    • Working on cloud infrastructure solutions and consulting
+                    projects
+                  </li>
+                  <li>
+                    • Collaborating with cross-functional teams to deliver
+                    cloud-based solutions
+                  </li>
+                  <li>
+                    • Analyzing and optimizing cloud performance and cost
+                    efficiency
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg dark:hover:shadow-gray-900/20 transition-all">
+              <div className="flex justify-between items-start mb-4">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">S</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                      SDE Intern
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 font-medium">
+                      Stealth Startup
+                    </p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      Internship • Bengaluru, Karnataka, India • On-site
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <span className="text-sm text-gray-500 dark:text-gray-400 flex items-center">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    Feb 2024 - Jul 2024 • 6 mos
+                  </span>
+                </div>
+              </div>
+              <div className="ml-16">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Next.js", "Prisma ORM"].map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full font-mono"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-2">
+                  <li>
+                    • Developed full-stack applications using Next.js and modern
+                    web technologies
+                  </li>
+                  <li>
+                    • Implemented database solutions using Prisma ORM for
+                    efficient data management
+                  </li>
+                  <li>
+                    • Collaborated with the development team on innovative
+                    startup projects
+                  </li>
+                  <li>
+                    • Gained hands-on experience in agile development
+                    methodologies
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section
+        id="projects"
+        className="py-16 px-6 bg-gray-50 dark:bg-gray-800/50"
+      >
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             My Projects
@@ -238,10 +393,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section */}
-      <section
-        id="education"
-        className="py-16 px-6 bg-gray-50 dark:bg-gray-800/50"
-      >
+      <section id="education" className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
             Education
@@ -323,7 +475,10 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-6">
+      <section
+        id="contact"
+        className="py-16 px-6 bg-gray-50 dark:bg-gray-800/50"
+      >
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
             Contact me
@@ -367,7 +522,8 @@ export default function Portfolio() {
       <footer className="py-8 px-6 border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 dark:text-gray-400">
-            © 2024 Niharika Surapuram. All rights reserved.
+            © {new Date().getFullYear()} Niharika Surapuram. All rights
+            reserved.
           </p>
           <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
             Built with React & Next.js, TypeScript, Tailwind CSS
