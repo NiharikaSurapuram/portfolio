@@ -20,7 +20,24 @@ const posts = defineCollection({
     const html = await compileMarkdown(context, document, {
       rehypePlugins: [
         rehypeHighlight,
-        [rehypeMermaid, { strategy: "img-svg" }],
+        [
+          rehypeMermaid,
+          {
+            strategy: "img-svg",
+            mermaidConfig: {
+              theme: "base",
+              themeVariables: {
+                primaryColor: "#f5f5f4", // stone-100
+                primaryTextColor: "#44403c", // stone-700
+                primaryBorderColor: "#e7e5e4", // stone-200
+                lineColor: "#78716c", // stone-500
+                secondaryColor: "#fafaf9", // stone-50
+                tertiaryColor: "#fff", // white
+                fontFamily: "var(--font-inter)",
+              },
+            },
+          },
+        ],
       ],
     });
     const slug = document._meta.path.replace(/\.md$/, "");
