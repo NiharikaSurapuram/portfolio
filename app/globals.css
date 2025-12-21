@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "highlight.js/styles/github-dark.css";
+/* Removed default highlight.js import to avoid conflict */
 
 @plugin '@tailwindcss/typography';
 
@@ -48,73 +48,96 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  /* Warm Light Mode (Stone/Paper vibe) */
-  --background: oklch(0.985 0.002 85); /* Warm white */
-  --foreground: oklch(0.25 0.02 85); /* Soft warm black */
-  --card: oklch(0.97 0.005 85);
-  --card-foreground: oklch(0.25 0.02 85);
-  --popover: oklch(0.985 0.002 85);
-  --popover-foreground: oklch(0.25 0.02 85);
-  --primary: oklch(0.3 0.04 45); /* Warm brownish accent */
-  --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.95 0.01 85);
-  --secondary-foreground: oklch(0.3 0.04 45);
-  --muted: oklch(0.95 0.01 85);
-  --muted-foreground: oklch(0.5 0.02 85);
-  --accent: oklch(0.95 0.01 85);
-  --accent-foreground: oklch(0.3 0.04 45);
+  --radius: 0.5rem;
+
+  /* "Porcelain & Ink" - Clean, Calm, Professional */
+  --background: oklch(0.99 0.002 85); /* Pure, soft white */
+  --foreground: oklch(0.2 0.01 85); /* Deep charcoal ink */
+
+  --card: oklch(0.98 0.002 85); /* Subtle off-white for cards */
+  --card-foreground: oklch(0.2 0.01 85);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.01 85);
+
+  --primary: oklch(
+    0.35 0.04 45
+  ); /* Deep earthy brown/slate - Professional & Grounded */
+  --primary-foreground: oklch(0.99 0.002 85);
+
+  --secondary: oklch(0.96 0.005 85); /* Mist grey - Calm */
+  --secondary-foreground: oklch(0.35 0.04 45);
+
+  --muted: oklch(0.96 0.005 85);
+  --muted-foreground: oklch(0.5 0.02 85); /* Soft grey for secondary text */
+
+  --accent: oklch(0.96 0.005 85);
+  --accent-foreground: oklch(0.35 0.04 45);
+
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.01 85);
-  --input: oklch(0.92 0.01 85);
+
+  --border: oklch(0.92 0.005 85); /* Very subtle borders */
+  --input: oklch(0.92 0.005 85);
   --ring: oklch(0.8 0.02 85);
+
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0.002 85);
-  --sidebar-foreground: oklch(0.25 0.02 85);
-  --sidebar-primary: oklch(0.3 0.04 45);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.95 0.01 85);
-  --sidebar-accent-foreground: oklch(0.3 0.04 45);
-  --sidebar-border: oklch(0.92 0.01 85);
+
+  --sidebar: oklch(0.99 0.002 85);
+  --sidebar-foreground: oklch(0.2 0.01 85);
+  --sidebar-primary: oklch(0.35 0.04 45);
+  --sidebar-primary-foreground: oklch(0.99 0.002 85);
+  --sidebar-accent: oklch(0.96 0.005 85);
+  --sidebar-accent-foreground: oklch(0.35 0.04 45);
+  --sidebar-border: oklch(0.92 0.005 85);
   --sidebar-ring: oklch(0.8 0.02 85);
 }
 
 .dark {
-  /* Cozy Dark Mode (Deep warm study) */
-  --background: oklch(0.12 0.01 60); /* Deep warm brown-black */
-  --foreground: oklch(0.92 0.01 85); /* Soft white */
-  --card: oklch(0.15 0.01 60);
-  --card-foreground: oklch(0.92 0.01 85);
-  --popover: oklch(0.12 0.01 60);
-  --popover-foreground: oklch(0.92 0.01 85);
-  --primary: oklch(0.85 0.03 85); /* Soft warm white/goldish */
-  --primary-foreground: oklch(0.15 0.01 60);
+  /* "Midnight Study" - Deep, focused, warm */
+  --background: oklch(0.14 0.01 60); /* Deep warm espresso/slate */
+  --foreground: oklch(0.95 0.005 85); /* Soft antique white */
+
+  --card: oklch(0.16 0.01 60);
+  --card-foreground: oklch(0.95 0.005 85);
+
+  --popover: oklch(0.14 0.01 60);
+  --popover-foreground: oklch(0.95 0.005 85);
+
+  --primary: oklch(0.9 0.02 85); /* Soft Parchment - Warm contrast */
+  --primary-foreground: oklch(0.14 0.01 60);
+
   --secondary: oklch(0.2 0.01 60);
-  --secondary-foreground: oklch(0.92 0.01 85);
+  --secondary-foreground: oklch(0.95 0.005 85);
+
   --muted: oklch(0.2 0.01 60);
   --muted-foreground: oklch(0.65 0.01 85);
+
   --accent: oklch(0.2 0.01 60);
-  --accent-foreground: oklch(0.92 0.01 85);
+  --accent-foreground: oklch(0.95 0.005 85);
+
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+
+  --border: oklch(1 0 0 / 8%); /* Subtle borders */
+  --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.4 0.01 60);
+
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.15 0.01 60);
-  --sidebar-foreground: oklch(0.92 0.01 85);
+
+  --sidebar: oklch(0.14 0.01 60);
+  --sidebar-foreground: oklch(0.95 0.005 85);
   --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.92 0.01 85);
+  --sidebar-primary-foreground: oklch(0.95 0.005 85);
   --sidebar-accent: oklch(0.2 0.01 60);
-  --sidebar-accent-foreground: oklch(0.92 0.01 85);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-accent-foreground: oklch(0.95 0.005 85);
+  --sidebar-border: oklch(1 0 0 / 8%);
   --sidebar-ring: oklch(0.4 0.01 60);
 }
 
@@ -129,7 +152,8 @@
   }
 
   body {
-    @apply transition-colors bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+    @apply antialiased transition-colors bg-background text-foreground;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
 
   h1,
@@ -138,16 +162,19 @@
   h4,
   h5,
   h6 {
-    @apply font-serif font-medium tracking-tight;
+    @apply font-serif tracking-tight text-foreground;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 
   a {
     @apply transition-colors duration-200;
   }
 
-  .font-mono {
-    font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular,
-      "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  ::selection {
+    @apply bg-primary/10 text-primary;
   }
 }
 
@@ -155,11 +182,15 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .container-width {
+    @apply px-6 mx-auto max-w-2xl;
+  }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Minimal */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -170,36 +201,19 @@
   @apply rounded-full transition-colors bg-muted-foreground/20 hover:bg-muted-foreground/40;
 }
 
-/* Dark mode support for images */
+/* Dark mode image handling */
 .dark img {
-  filter: brightness(0.9);
+  filter: brightness(0.9) contrast(0.95);
 }
 
-/* Smooth transitions for theme changes */
+/* Smooth transitions */
 * {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  transition-duration: 200ms;
 }
 
-/* Code highlighting customizations */
-.prose pre {
-  @apply overflow-x-auto rounded-lg border bg-stone-900 dark:bg-stone-900 border-stone-800 dark:border-stone-800;
-  padding: 1rem;
-}
-
-.prose code {
-  @apply px-1 py-0.5 text-sm font-normal rounded bg-muted text-primary;
-  font-family: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular,
-    "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-}
-
-.prose pre code {
-  @apply p-0 bg-transparent text-stone-200;
-}
-
-/* Prose customizations for blog posts */
+/* Prose Typography Overrides */
 .prose {
   @apply text-muted-foreground;
 }
@@ -207,25 +221,28 @@
 .prose h1,
 .prose h2,
 .prose h3,
-.prose h4,
-.prose h5,
-.prose h6 {
-  @apply font-serif text-foreground;
+.prose h4 {
+  @apply font-serif font-normal text-foreground;
 }
 
 .prose a {
-  @apply underline transition-all text-primary hover:text-primary/80 decoration-primary/30 underline-offset-4 hover:decoration-primary/100;
+  @apply underline transition-all text-foreground decoration-border hover:decoration-primary underline-offset-4 decoration-1 hover:text-primary;
 }
 
 .prose blockquote {
-  @apply px-4 py-2 italic rounded-r-lg border-l-4 border-primary/20 bg-muted/50;
+  @apply pl-4 not-italic border-l-2 border-primary/20 text-foreground/80;
 }
 
-.prose ul,
-.prose ol {
-  @apply text-muted-foreground;
+/* Ensure code blocks have a background and font */
+.prose pre {
+  @apply bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-lg overflow-x-auto p-4;
 }
 
-.prose strong {
-  @apply font-medium text-foreground;
+.prose code {
+  @apply font-mono text-sm;
+}
+
+/* Inline code styling */
+.prose :not(pre) > code {
+  @apply bg-stone-100 dark:bg-stone-800 px-1.5 py-0.5 rounded text-sm text-foreground border border-stone-200 dark:border-stone-700;
 }

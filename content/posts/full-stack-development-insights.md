@@ -8,8 +8,6 @@ tags: ["React", "Next.js", "TypeScript", "Full-Stack", "Enterprise"]
 published: true
 ---
 
-# Full-Stack Development: From React to Enterprise Solutions
-
 The journey from frontend development to full-stack enterprise solutions has been both challenging and rewarding. In this post, I'll share insights from working with modern web technologies and integrating them with enterprise systems.
 
 ## The Modern Frontend Stack

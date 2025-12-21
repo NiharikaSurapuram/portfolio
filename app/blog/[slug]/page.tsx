@@ -87,92 +87,76 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   );
 
   return (
-    <div className="min-h-screen bg-white transition-colors dark:bg-gray-950">
-      {/* Navigation */}
+    <div className="min-h-screen font-sans bg-background">
       <Header currentPage="blog" />
 
-      {/* Header */}
-      <div className="py-0 pt-24 sm:pt-32">
-        <div className="px-6 mx-auto max-w-4xl">
+      <main className="pt-32 pb-24 container-width">
+        <Link
+          href="/blog"
+          className="inline-flex items-center mb-8 text-xs font-medium transition-colors group text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="mr-2 w-3 h-3 transition-transform group-hover:-translate-x-1" />
+          Back
+        </Link>
+
+        <article>
+          <header className="pb-8 mb-12 space-y-6 border-b border-border">
+            <div className="space-y-4">
+              <h1 className="font-serif text-3xl leading-tight sm:text-4xl text-foreground">
+                {post.title}
+              </h1>
+              <p className="text-lg font-light leading-relaxed text-muted-foreground">
+                {post.summary}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-y-2 gap-x-6 items-center font-mono text-xs text-muted-foreground">
+              <div className="flex items-center">
+                <Calendar className="mr-2 w-3 h-3" />
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </div>
+              <div className="flex items-center">
+                <Clock className="mr-2 w-3 h-3" />
+                {readingTime} min read
+              </div>
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex gap-2 items-center">
+                  <Tag className="w-3 h-3" />
+                  <div className="flex gap-1">
+                    {post.tags.map((tag, i) => (
+                      <span key={tag}>
+                        #{tag}
+                        {i !== (post.tags?.length || 0) - 1 ? "," : ""}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </header>
+
+          <div
+            className="max-w-none prose prose-stone dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: post.html }}
+          />
+        </article>
+
+        <div className="flex justify-between items-center pt-8 mt-16 text-xs border-t border-border text-muted-foreground">
           <Link
             href="/blog"
-            className="inline-flex items-center mb-6 text-xs text-gray-500 transition-colors dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 sm:mb-8 sm:text-sm"
+            className="transition-colors hover:text-foreground"
           >
-            <ArrowLeft className="mr-2 w-3 h-3" />
-            Back to Blog
+            ← More Writing
           </Link>
-
-          <h1 className="mb-4 text-2xl font-light tracking-tight leading-tight text-gray-900 sm:text-3xl dark:text-gray-100 sm:mb-6">
-            {post.title}
-          </h1>
-
-          <div className="flex flex-wrap gap-4 items-center mb-6 text-xs text-gray-500 sm:gap-6 dark:text-gray-500 sm:mb-8">
-            <div className="flex items-center">
-              <Calendar className="mr-1 w-3 h-3" />
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </div>
-
-            <div className="flex items-center">
-              <Clock className="mr-1 w-3 h-3" />
-              {readingTime} min read
-            </div>
-
-            <div className="text-xs">By {post.author}</div>
-          </div>
-
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 items-center mb-6 sm:mb-8">
-              <Tag className="flex-shrink-0 w-3 h-3 text-gray-500 dark:text-gray-500" />
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag: string) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 text-xs text-gray-600 bg-gray-100 rounded dark:bg-gray-800 dark:text-gray-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
+          <Link href="/" className="transition-colors hover:text-foreground">
+            Portfolio →
+          </Link>
         </div>
-      </div>
-
-      {/* Content */}
-      <article className="px-6 pb-16 mx-auto max-w-4xl sm:pb-24">
-        <div className="max-w-none prose prose-sm sm:prose-lg dark:prose-invert">
-          <div
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            className="text-sm leading-relaxed text-gray-700 sm:text-base dark:text-gray-300"
-          />
-        </div>
-      </article>
-
-      {/* Footer */}
-      <div className="px-6 pb-8 mx-auto max-w-4xl sm:pb-12">
-        <div className="pt-6 border-t border-gray-100 dark:border-gray-800 sm:pt-8">
-          <div className="flex flex-col gap-4 justify-between items-center sm:flex-row">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-xs text-gray-500 transition-colors dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 sm:text-sm"
-            >
-              <ArrowLeft className="mr-2 w-3 h-3" />
-              Back to Blog
-            </Link>
-
-            <Link
-              href="/"
-              className="inline-flex items-center text-xs text-gray-500 transition-colors dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 sm:text-sm"
-            >
-              Portfolio
-            </Link>
-          </div>
-        </div>
-      </div>
+      </main>
     </div>
   );
 }

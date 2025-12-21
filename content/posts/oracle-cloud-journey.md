@@ -8,8 +8,6 @@ tags: ["Oracle", "Cloud Computing", "OCI", "Career", "Enterprise"]
 published: true
 ---
 
-# My Journey as a Cloud Analyst at Oracle
-
 Working as a Cloud Analyst at Oracle has been an incredible journey of learning, growth, and innovation. In this post, I'll share my experiences working with Oracle Cloud Infrastructure (OCI) and the exciting challenges of enterprise cloud solutions.
 
 ## Getting Started at Oracle

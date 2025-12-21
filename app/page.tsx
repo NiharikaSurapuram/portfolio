@@ -4,214 +4,170 @@ import {
   WebsiteStructuredData,
 } from "@/components/structured-data";
 import {
-  aboutDescription,
   books,
   education,
   experiences,
   personalInfo,
   projects,
-  socialLinks,
   techSkills,
   values,
 } from "@/lib/data";
 import {
-  ArrowRight,
   BookOpen,
-  Building2,
-  CheckCircle2,
+  Briefcase,
+  Code2,
   Download,
   Github,
   Linkedin,
   Mail,
   MapPin,
+  MoveUpRight,
 } from "lucide-react";
 import Image from "next/image";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-background transition-colors selection:bg-stone-200 dark:selection:bg-stone-800">
+    <div className="min-h-screen bg-background font-sans">
       <PersonStructuredData />
       <WebsiteStructuredData />
 
       <Header currentPage="portfolio" />
 
-      <main className="max-w-4xl mx-auto px-6 pt-32 pb-24 space-y-32">
-        {/* Hero Section */}
-        <section className="space-y-8 animate-fade-in">
-          <div className="space-y-4">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs font-medium text-stone-600 dark:text-stone-400">
-              <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-              Building @ Oracle
+      <main className="pt-32 pb-24 space-y-24">
+        {/* Intro / Hero */}
+        <section className="container-width animate-fade-in space-y-8">
+          <div className="flex items-center gap-3">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 overflow-hidden rounded-full border border-border/50">
+              <Image
+                src="/niharika_surapuram.jpeg"
+                alt={personalInfo.name}
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
-            <h1 className="text-5xl sm:text-7xl font-serif text-foreground tracking-tight leading-[1.1]">
-              {personalInfo.name}
-            </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground font-light max-w-2xl leading-relaxed">
-              Cloud Analyst & Full-Stack Developer.
-              <br />
-              <span className="text-foreground/80">
-                Crafting clean, resilient software with quiet confidence.
-              </span>
-            </p>
+            <div>
+              <h1 className="text-xl sm:text-2xl font-serif text-foreground">
+                {personalInfo.name}
+              </h1>
+              <p className="text-sm text-muted-foreground">
+                {personalInfo.title}
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 pt-4">
+          <div className="space-y-6">
+            <p className="text-lg sm:text-xl font-light leading-relaxed text-foreground/90">
+              I’m a software engineer who finds joy in the quiet details. I
+              bridge the gap between complex systems and human experiences,
+              building with calm precision and curiosity.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 sm:items-center text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                Building at Oracle
+              </div>
+              <div className="hidden sm:block text-border">•</div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5" />
+                Bangalore, India
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4 pt-2">
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center px-6 py-3 bg-foreground text-background text-sm font-medium rounded-full hover:bg-foreground/90 transition-colors"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              <Mail className="w-4 h-4 mr-2" />
-              Get in Touch
+              <Mail className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+              Email
             </a>
             <a
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-full hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              <Linkedin className="w-4 h-4 mr-2" />
+              <Linkedin className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
               LinkedIn
+            </a>
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              <Github className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+              GitHub
             </a>
           </div>
         </section>
 
-        {/* Values / Philosophy */}
-        <section className="grid sm:grid-cols-3 gap-8 pt-8 border-t border-border">
-          {values.map((value, index) => (
-            <div key={index} className="space-y-3">
-              <h3 className="font-serif text-lg text-foreground">
-                {value.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {value.description}
-              </p>
-            </div>
-          ))}
-        </section>
-
-        {/* About & The Person */}
-        <section id="about" className="scroll-mt-24">
-          <div className="grid md:grid-cols-[2fr,1fr] gap-16">
-            <div className="space-y-8">
-              <h2 className="text-3xl font-serif text-foreground">
-                The Person Behind the Code
-              </h2>
-              <div className="prose dark:prose-invert prose-stone">
-                {aboutDescription.map((paragraph, index) => (
-                  <p
-                    key={index}
-                    className="text-muted-foreground leading-relaxed text-lg font-light"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-4">
-                <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2 opacity-70" />
-                  {personalInfo.location}
-                </div>
-                <div className="flex items-center">
-                  <Building2 className="w-4 h-4 mr-2 opacity-70" />
-                  Oracle
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="relative aspect-square w-full max-w-[280px] mx-auto md:ml-auto">
-                <Image
-                  src="/niharika_surapuram.jpeg"
-                  alt={personalInfo.name}
-                  fill
-                  className="object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700"
-                />
-              </div>
-
-              <div className="bg-stone-50 dark:bg-stone-900/50 p-6 rounded-2xl space-y-4 border border-border/50">
-                <h3 className="font-serif text-foreground flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" />
-                  On My Shelf
-                </h3>
-                <div className="space-y-4">
-                  {books.map((book, i) => (
-                    <div key={i} className="space-y-1">
-                      <p className="text-sm font-medium text-foreground">
-                        {book.title}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        by {book.author}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Skills - Clean Grid */}
-        <section className="space-y-12">
-          <h2 className="text-3xl font-serif text-foreground">
-            Technical Toolkit
+        {/* Philosophy / Values */}
+        <section className="container-width space-y-8">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            Philosophy
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(techSkills).map(([category, skills]) => (
-              <div key={category} className="space-y-4">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider border-b border-border pb-2">
-                  {category}
+          <div className="grid sm:grid-cols-3 gap-6 sm:gap-12">
+            {values.map((val, i) => (
+              <div key={i} className="space-y-2">
+                <h3 className="font-serif text-base text-foreground">
+                  {val.title}
                 </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-sm text-foreground bg-stone-100 dark:bg-stone-900 px-3 py-1.5 rounded-md border border-stone-200 dark:border-stone-800"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {val.description}
+                </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Experience */}
-        <section id="experience" className="space-y-12 scroll-mt-24">
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-3xl font-serif text-foreground">Experience</h2>
+        {/* Experience - Clean Timeline */}
+        <section
+          id="experience"
+          className="container-width space-y-8 scroll-mt-24"
+        >
+          <div className="flex items-baseline justify-between border-b border-border pb-2">
+            <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              Experience
+            </h2>
             <a
               href="/resume.pdf"
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
+              className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
             >
-              Download Resume{" "}
-              <Download className="w-3 h-3 group-hover:translate-y-0.5 transition-transform" />
+              Resume <Download className="w-3 h-3" />
             </a>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-10">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="group grid md:grid-cols-[1fr,3fr] gap-8"
+                className="group grid grid-cols-[1fr] sm:grid-cols-[120px_1fr] gap-2 sm:gap-8"
               >
-                <div className="text-sm text-muted-foreground pt-1">
+                <div className="text-xs text-muted-foreground font-mono pt-1">
                   {exp.startDate} — {exp.endDate}
                 </div>
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-xl font-medium text-foreground group-hover:text-primary transition-colors">
+                <div className="space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                    <h3 className="font-medium text-foreground text-base group-hover:text-primary transition-colors">
                       {exp.role}
                     </h3>
-                    <div className="text-muted-foreground">
-                      {exp.company} • {exp.location}
-                    </div>
+                    <span className="text-xs text-muted-foreground">
+                      {exp.company}
+                    </span>
                   </div>
-                  <ul className="space-y-2 text-muted-foreground leading-relaxed">
-                    {exp.responsibilities.map((item, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="mr-3 mt-2 w-1.5 h-1.5 bg-stone-300 dark:bg-stone-700 rounded-full flex-shrink-0" />
+                  <ul className="space-y-1.5">
+                    {exp.responsibilities.slice(0, 3).map((item, i) => (
+                      <li
+                        key={i}
+                        className="text-sm text-muted-foreground leading-relaxed pl-3 border-l border-border hover:border-primary/30 transition-colors"
+                      >
                         {item}
                       </li>
                     ))}
@@ -222,84 +178,136 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Projects */}
-        <section id="projects" className="space-y-12 scroll-mt-24">
-          <h2 className="text-3xl font-serif text-foreground">Selected Work</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group p-6 rounded-2xl bg-stone-50 dark:bg-stone-900/30 border border-stone-100 dark:border-stone-800 hover:border-stone-300 dark:hover:border-stone-700 transition-colors space-y-4 flex flex-col"
-              >
-                <div className="flex justify-between items-start">
-                  <h3 className="font-medium text-lg text-foreground group-hover:underline decoration-1 underline-offset-4">
-                    {project.title}
-                  </h3>
-                  {project.status === "Completed" && (
-                    <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] uppercase tracking-wider font-medium rounded-full flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3" />
-                      Done
-                    </span>
-                  )}
-                </div>
+        {/* Selected Work */}
+        <section
+          id="projects"
+          className="container-width space-y-8 scroll-mt-24"
+        >
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground border-b border-border pb-2">
+            Selected Work
+          </h2>
 
-                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+          <div className="grid gap-6">
+            {projects.map((project, i) => (
+              <a
+                key={i}
+                href={project.link || "#"}
+                className={`block group p-6 -mx-6 sm:mx-0 rounded-2xl transition-all hover:bg-secondary/50 ${
+                  !project.link ? "cursor-default" : ""
+                }`}
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-serif text-lg text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
+                    {project.title}
+                    {project.link && (
+                      <MoveUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    )}
+                  </h3>
+                  <span
+                    className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                      project.status === "Completed"
+                        ? "border-green-200 text-green-700 dark:border-green-900/30 dark:text-green-400"
+                        : "border-border text-muted-foreground"
+                    }`}
+                  >
+                    {project.status}
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 max-w-lg">
                   {project.description}
                 </p>
-
-                <div className="space-y-4 pt-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs text-muted-foreground bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 px-2 py-1 rounded"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs font-mono text-muted-foreground/80"
                     >
-                      View Project{" "}
-                      <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* The Toolkit (Skills) */}
+        <section className="container-width space-y-8">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground border-b border-border pb-2">
+            Toolkit
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-8">
+            {Object.entries(techSkills).map(([category, skills]) => (
+              <div key={category} className="space-y-3">
+                <h3 className="text-sm font-medium text-foreground flex items-center gap-2">
+                  {category === "Web Development" && (
+                    <Code2 className="w-4 h-4 text-muted-foreground" />
                   )}
+                  {category === "Oracle Stack" && (
+                    <Briefcase className="w-4 h-4 text-muted-foreground" />
+                  )}
+                  {category === "Cloud & Infrastructure" && (
+                    <BookOpen className="w-4 h-4 text-muted-foreground" />
+                  )}
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-x-2 gap-y-1">
+                  {skills.map((skill, index) => (
+                    <span key={skill} className="text-sm text-muted-foreground">
+                      {skill}
+                      {index !== skills.length - 1 ? " ·" : ""}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* Education - Compact */}
-        <section className="space-y-8">
-          <h2 className="text-3xl font-serif text-foreground">Education</h2>
-          <div className="space-y-6">
-            {education.map((edu, index) => (
+        {/* Bookshelf / Personal */}
+        <section id="about" className="container-width space-y-8 scroll-mt-24">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground border-b border-border pb-2">
+            On My Shelf
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {books.map((book, i) => (
               <div
-                key={index}
-                className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 pb-6 border-b border-border last:border-0 last:pb-0"
+                key={i}
+                className="space-y-2 p-4 rounded-lg bg-secondary/30 border border-transparent hover:border-border transition-colors"
               >
                 <div>
-                  <h3 className="font-medium text-foreground">
-                    {edu.institution}
+                  <h3 className="font-serif font-medium text-foreground">
+                    {book.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {edu.degree}
-                    {edu.field ? `, ${edu.field}` : ""}
+                  <p className="text-xs text-muted-foreground">
+                    by {book.author}
                   </p>
                 </div>
+                <p className="text-xs text-muted-foreground/80 italic leading-relaxed">
+                  "{book.thoughts}"
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Education */}
+        <section className="container-width space-y-8">
+          <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground border-b border-border pb-2">
+            Education
+          </h2>
+          <div className="space-y-6">
+            {education.map((edu, i) => (
+              <div key={i} className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-sm font-medium text-foreground">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">{edu.degree}</p>
+                </div>
                 <div className="text-right">
-                  <p className="text-sm text-foreground">
-                    {edu.startYear} - {edu.endYear || "Present"}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Grade: {edu.grade}
+                  <p className="text-xs text-muted-foreground font-mono">
+                    {edu.startYear} - {edu.endYear}
                   </p>
                 </div>
               </div>
@@ -308,27 +316,26 @@ export default function Portfolio() {
         </section>
       </main>
 
-      <footer className="py-12 border-t border-border">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Niharika Surapuram.
-            <span className="hidden sm:inline"> Crafted with curiosity.</span>
-          </div>
-          <div className="flex items-center gap-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label={link.name}
-              >
-                {link.name === "Email" && <Mail className="w-4 h-4" />}
-                {link.name === "LinkedIn" && <Linkedin className="w-4 h-4" />}
-                {link.name === "GitHub" && <Github className="w-4 h-4" />}
-              </a>
-            ))}
+      {/* Simple Footer */}
+      <footer className="py-12 border-t border-border mt-12">
+        <div className="container-width flex justify-between items-center text-xs text-muted-foreground">
+          <p>© {new Date().getFullYear()} Niharika Surapuram</p>
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-foreground transition-colors">
+              Twitter
+            </a>
+            <a
+              href={personalInfo.linkedin}
+              className="hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="hover:text-foreground transition-colors"
+            >
+              Email
+            </a>
           </div>
         </div>
       </footer>
