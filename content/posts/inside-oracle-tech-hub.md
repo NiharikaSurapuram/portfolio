@@ -42,3 +42,4 @@ The scale we operate at is humbling. When I push code, I know it might process t
 ## Wrap Up
 
 If you are looking at Oracle from the outside, you might see a legacy giant. But from the inside, especially here in the Tech Hub, it feels like a massive startup with unlimited resources, trying to solve the hardest UX problem in the world: making complexity feel simple.
+

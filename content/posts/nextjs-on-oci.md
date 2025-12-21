@@ -66,3 +66,4 @@ This keeps my frontend dumb and secure. It doesn't know about ERP credentials; i
 
 You don't have to choose between "Oracle Tech" and "Modern Tech". You can run the latest Next.js 14 features right alongside your mission-critical PL/SQL logic. It’s the best of both worlds.
 
+

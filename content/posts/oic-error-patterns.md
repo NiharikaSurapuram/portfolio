@@ -67,3 +67,4 @@ This allows us to write a separate "Reprocessing Script" that can read from this
 
 OIC is a low-code tool, but it requires high-code thinking. Treat your integrations like distributed systems, because that is exactly what they are. Plan for failure, and your on-call weekends will be much quieter.
 
+
