@@ -284,7 +284,7 @@ export default function Portfolio() {
                   </p>
                 </div>
                 <p className="text-xs text-muted-foreground/80 italic leading-relaxed">
-                  "{book.thoughts}"
+                  &ldquo;{book.thoughts}&rdquo;
                 </p>
               </div>
             ))}
