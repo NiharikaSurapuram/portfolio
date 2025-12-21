@@ -1,12 +1,17 @@
 import { personalInfo } from "@/lib/data";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -107,7 +112,7 @@ export default function RootLayout({
         <meta name="color-scheme" content="dark light" />
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans antialiased bg-stone-50 dark:bg-stone-950`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}

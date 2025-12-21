@@ -3,22 +3,23 @@ import {
   PersonStructuredData,
   WebsiteStructuredData,
 } from "@/components/structured-data";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   aboutDescription,
-  contactInfo,
+  books,
   education,
   experiences,
   personalInfo,
   projects,
   socialLinks,
   techSkills,
+  values,
 } from "@/lib/data";
 import {
+  ArrowRight,
+  BookOpen,
   Building2,
-  Calendar,
+  CheckCircle2,
   Download,
-  ExternalLink,
   Github,
   Linkedin,
   Mail,
@@ -28,315 +29,307 @@ import Image from "next/image";
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors">
+    <div className="min-h-screen bg-background transition-colors selection:bg-stone-200 dark:selection:bg-stone-800">
       <PersonStructuredData />
       <WebsiteStructuredData />
 
-      {/* Navigation */}
-
       <Header currentPage="portfolio" />
-      {/* Hero Section */}
-      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 dark:text-gray-100 mb-4 sm:mb-6 tracking-tight leading-tight">
-                {personalInfo.name}
-              </h1>
-              <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-12">
-                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-light">
-                  {personalInfo.title}
-                </p>
-                <p className="text-sm sm:text-base text-gray-500 dark:text-gray-500 leading-relaxed max-w-lg">
-                  {personalInfo.description}
-                </p>
+
+      <main className="max-w-4xl mx-auto px-6 pt-32 pb-24 space-y-32">
+        {/* Hero Section */}
+        <section className="space-y-8 animate-fade-in">
+          <div className="space-y-4">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 text-xs font-medium text-stone-600 dark:text-stone-400">
+              <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+              Building @ Oracle
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-serif text-foreground tracking-tight leading-[1.1]">
+              {personalInfo.name}
+            </h1>
+            <p className="text-xl sm:text-2xl text-muted-foreground font-light max-w-2xl leading-relaxed">
+              Cloud Analyst & Full-Stack Developer.
+              <br />
+              <span className="text-foreground/80">
+                Crafting clean, resilient software with quiet confidence.
+              </span>
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-4 pt-4">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="inline-flex items-center px-6 py-3 bg-foreground text-background text-sm font-medium rounded-full hover:bg-foreground/90 transition-colors"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Get in Touch
+            </a>
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 border border-border text-foreground text-sm font-medium rounded-full hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors"
+            >
+              <Linkedin className="w-4 h-4 mr-2" />
+              LinkedIn
+            </a>
+          </div>
+        </section>
+
+        {/* Values / Philosophy */}
+        <section className="grid sm:grid-cols-3 gap-8 pt-8 border-t border-border">
+          {values.map((value, index) => (
+            <div key={index} className="space-y-3">
+              <h3 className="font-serif text-lg text-foreground">
+                {value.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {value.description}
+              </p>
+            </div>
+          ))}
+        </section>
+
+        {/* About & The Person */}
+        <section id="about" className="scroll-mt-24">
+          <div className="grid md:grid-cols-[2fr,1fr] gap-16">
+            <div className="space-y-8">
+              <h2 className="text-3xl font-serif text-foreground">
+                The Person Behind the Code
+              </h2>
+              <div className="prose dark:prose-invert prose-stone">
+                {aboutDescription.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="text-muted-foreground leading-relaxed text-lg font-light"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-sm font-medium rounded-md hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Contact
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center px-6 py-3 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Resume
-                </a>
+
+              <div className="flex flex-wrap gap-6 text-sm text-muted-foreground pt-4">
+                <div className="flex items-center">
+                  <MapPin className="w-4 h-4 mr-2 opacity-70" />
+                  {personalInfo.location}
+                </div>
+                <div className="flex items-center">
+                  <Building2 className="w-4 h-4 mr-2 opacity-70" />
+                  Oracle
+                </div>
               </div>
             </div>
-            <div className="flex justify-center">
-              <div className="relative">
+
+            <div className="space-y-8">
+              <div className="relative aspect-square w-full max-w-[280px] mx-auto md:ml-auto">
                 <Image
                   src="/niharika_surapuram.jpeg"
                   alt={personalInfo.name}
-                  width={280}
-                  height={280}
-                  className="rounded-2xl grayscale hover:grayscale-0 transition-all duration-500 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover"
-                  priority
+                  fill
+                  className="object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* About Section */}
-      <section id="about" className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
-            About
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 sm:gap-16">
-            <div className="space-y-6">
-              {aboutDescription.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed"
-                >
-                  {paragraph}
-                </p>
-              ))}
-              <div className="pt-4 space-y-3">
-                <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-500">
-                  <MapPin className="w-4 h-4 mr-3 flex-shrink-0" />
-                  <span>{personalInfo.location}</span>
-                </div>
-                <div className="flex items-center text-xs sm:text-sm text-gray-500 dark:text-gray-500">
-                  <Building2 className="w-4 h-4 mr-3 flex-shrink-0" />
-                  <span>{personalInfo.connections}</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100 mb-6 sm:mb-8">
-                Technologies
-              </h3>
-              <div className="space-y-6 sm:space-y-8">
-                {Object.entries(techSkills).map(([category, skills]) => (
-                  <div key={category}>
-                    <h4 className="text-xs font-medium text-gray-500 dark:text-gray-500 mb-3 uppercase tracking-wider">
-                      {category}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+              <div className="bg-stone-50 dark:bg-stone-900/50 p-6 rounded-2xl space-y-4 border border-border/50">
+                <h3 className="font-serif text-foreground flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  On My Shelf
+                </h3>
+                <div className="space-y-4">
+                  {books.map((book, i) => (
+                    <div key={i} className="space-y-1">
+                      <p className="text-sm font-medium text-foreground">
+                        {book.title}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        by {book.author}
+                      </p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
-            Experience
+        {/* Skills - Clean Grid */}
+        <section className="space-y-12">
+          <h2 className="text-3xl font-serif text-foreground">
+            Technical Toolkit
           </h2>
-          <div className="space-y-8 sm:space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Object.entries(techSkills).map(([category, skills]) => (
+              <div key={category} className="space-y-4">
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider border-b border-border pb-2">
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-sm text-foreground bg-stone-100 dark:bg-stone-900 px-3 py-1.5 rounded-md border border-stone-200 dark:border-stone-800"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section id="experience" className="space-y-12 scroll-mt-24">
+          <div className="flex items-baseline justify-between">
+            <h2 className="text-3xl font-serif text-foreground">Experience</h2>
+            <a
+              href="/resume.pdf"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
+            >
+              Download Resume{" "}
+              <Download className="w-3 h-3 group-hover:translate-y-0.5 transition-transform" />
+            </a>
+          </div>
+
+          <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
-                key={exp.company}
-                className={
-                  index !== experiences.length - 1
-                    ? "border-b border-gray-100 dark:border-gray-800 pb-8 sm:pb-12"
-                    : ""
-                }
+                key={index}
+                className="group grid md:grid-cols-[1fr,3fr] gap-8"
               >
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 sm:mb-6 gap-4">
-                  <div className="flex items-start space-x-4">
-                    {exp.logo ? (
-                      <Avatar className="w-10 h-10 rounded-lg flex-shrink-0">
-                        <AvatarImage
-                          src={exp.logo}
-                          alt={`${exp.company} Logo`}
-                          className="rounded-lg"
-                        />
-                        <AvatarFallback className="bg-red-600 text-white font-medium text-sm rounded-lg">
-                          {exp.logoFallback}
-                        </AvatarFallback>
-                      </Avatar>
-                    ) : (
-                      <div className="w-10 h-10 bg-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-white font-medium text-sm">
-                          {exp.logoFallback}
-                        </span>
-                      </div>
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
-                        {exp.role}
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-medium">
-                        {exp.company}
-                      </p>
-                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">
-                        {exp.type} • {exp.location}
-                      </p>
+                <div className="text-sm text-muted-foreground pt-1">
+                  {exp.startDate} — {exp.endDate}
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-xl font-medium text-foreground group-hover:text-primary transition-colors">
+                      {exp.role}
+                    </h3>
+                    <div className="text-muted-foreground">
+                      {exp.company} • {exp.location}
                     </div>
                   </div>
-                  <div className="sm:text-right sm:flex-shrink-0">
-                    <span className="text-xs text-gray-500 dark:text-gray-500 flex items-center sm:justify-end">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {exp.startDate} - {exp.endDate}
-                    </span>
-                  </div>
-                </div>
-                <div className="ml-0 sm:ml-14">
-                  <ul className="text-gray-600 dark:text-gray-400 space-y-2 text-xs sm:text-sm leading-relaxed">
-                    {exp.responsibilities.map((responsibility, idx) => (
-                      <li key={idx}>• {responsibility}</li>
+                  <ul className="space-y-2 text-muted-foreground leading-relaxed">
+                    {exp.responsibilities.map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="mr-3 mt-2 w-1.5 h-1.5 bg-stone-300 dark:bg-stone-700 rounded-full flex-shrink-0" />
+                        {item}
+                      </li>
                     ))}
                   </ul>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
-            Projects
-          </h2>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+        {/* Projects */}
+        <section id="projects" className="space-y-12 scroll-mt-24">
+          <h2 className="text-3xl font-serif text-foreground">Selected Work</h2>
+          <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="group">
-                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors mb-3">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-xs sm:text-sm">
+              <div
+                key={index}
+                className="group p-6 rounded-2xl bg-stone-50 dark:bg-stone-900/30 border border-stone-100 dark:border-stone-800 hover:border-stone-300 dark:hover:border-stone-700 transition-colors space-y-4 flex flex-col"
+              >
+                <div className="flex justify-between items-start">
+                  <h3 className="font-medium text-lg text-foreground group-hover:underline decoration-1 underline-offset-4">
+                    {project.title}
+                  </h3>
+                  {project.status === "Completed" && (
+                    <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-[10px] uppercase tracking-wider font-medium rounded-full flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3" />
+                      Done
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs rounded"
+
+                <div className="space-y-4 pt-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs text-muted-foreground bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 px-2 py-1 rounded"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
                     >
-                      {tech}
-                    </span>
-                  ))}
+                      View Project{" "}
+                      <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  )}
                 </div>
-                {project.link && (
-                  <a
-                    href={project.link}
-                    className="inline-flex items-center text-xs text-gray-500 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-1" />
-                    View Project
-                  </a>
-                )}
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Education Section */}
-      <section id="education" className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 text-center tracking-tight">
-            Education
-          </h2>
-          <div className="space-y-6 sm:space-y-8">
+        {/* Education - Compact */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-serif text-foreground">Education</h2>
+          <div className="space-y-6">
             {education.map((edu, index) => (
               <div
-                key={edu.institution}
-                className={
-                  index !== education.length - 1
-                    ? "border-b border-gray-100 dark:border-gray-800 pb-6 sm:pb-8"
-                    : ""
-                }
+                key={index}
+                className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 pb-6 border-b border-border last:border-0 last:pb-0"
               >
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-gray-100">
-                      {edu.institution}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                      {edu.degree}
-                      {edu.field && `, ${edu.field}`}
-                    </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-500">
-                      {edu.location}
-                    </p>
-                  </div>
-                  <div className="sm:text-right sm:flex-shrink-0">
-                    <span className="text-xs text-gray-500 dark:text-gray-500 block">
-                      {edu.endYear
-                        ? `${edu.startYear} - ${edu.endYear}`
-                        : edu.startYear}
-                    </span>
-                    <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Grade: {edu.grade}
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="font-medium text-foreground">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {edu.degree}
+                    {edu.field ? `, ${edu.field}` : ""}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-sm text-foreground">
+                    {edu.startYear} - {edu.endYear || "Present"}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Grade: {edu.grade}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-light text-gray-900 dark:text-gray-100 mb-12 sm:mb-16 tracking-tight">
-            {contactInfo.title}
-          </h2>
-          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
-            {contactInfo.description}
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8">
-            {socialLinks.map((link) => {
-              const IconComponent =
-                link.icon === "mail"
-                  ? Mail
-                  : link.icon === "linkedin"
-                  ? Linkedin
-                  : Github;
-              return (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target={link.icon !== "mail" ? "_blank" : undefined}
-                  rel={link.icon !== "mail" ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors text-sm"
-                >
-                  <IconComponent className="w-4 h-4 mr-2" />
-                  {link.name}
-                </a>
-              );
-            })}
+      <footer className="py-12 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Niharika Surapuram.
+            <span className="hidden sm:inline"> Crafted with curiosity.</span>
           </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 sm:py-12 px-6 border-t border-gray-100 dark:border-gray-800">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-gray-500 dark:text-gray-500 text-xs sm:text-sm">
-            © {new Date().getFullYear()} {personalInfo.name}. All rights
-            reserved.
-          </p>
-          <p className="text-xs text-gray-400 dark:text-gray-600 mt-2">
-            Built with React & Next.js, TypeScript, Tailwind CSS
-          </p>
+          <div className="flex items-center gap-6">
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={link.name}
+              >
+                {link.name === "Email" && <Mail className="w-4 h-4" />}
+                {link.name === "LinkedIn" && <Linkedin className="w-4 h-4" />}
+                {link.name === "GitHub" && <Github className="w-4 h-4" />}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
     </div>

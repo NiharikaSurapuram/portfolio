@@ -10,6 +10,19 @@ export interface Project {
   description: string;
   tech: string[];
   link?: string;
+  status: "Completed" | "In Progress" | "Maintenance";
+}
+
+export interface Book {
+  title: string;
+  author: string;
+  thoughts: string;
+  cover?: string;
+}
+
+export interface Value {
+  title: string;
+  description: string;
 }
 
 export interface Experience {
@@ -143,36 +156,75 @@ export const projects: Project[] = [
       "Oracle Database",
       "PL/SQL",
     ],
+    status: "Completed",
   },
   {
     title: "Art Gallery Database Management System",
     description:
       "Streamlined gallery operations with a comprehensive user-friendly interface for managing artists, artworks, exhibitions, and sales. Designed to replace manual systems with efficient digital solutions.",
     tech: ["Database Design", "SQL", "System Architecture"],
+    status: "Completed",
   },
   {
     title: "Beauty Product Recommendation System",
     description:
       "Leveraged machine learning algorithms for personalized product recommendations based on user preferences, reviews, and product descriptions.",
     tech: ["Python", "Machine Learning", "Data Analysis"],
+    status: "Completed",
   },
   {
     title: "ASAP - Online Grocery Store",
     description:
       "Led the development of a comprehensive e-commerce platform with robust user authentication, dynamic product catalog, and secure payment processing.",
     tech: ["Full-Stack Development", "Authentication", "E-commerce"],
+    status: "Completed",
   },
   {
     title: "Food Ordering Dashboard",
     description:
       "Built a modern, responsive food ordering platform with real-time order tracking and seamless user experience using cutting-edge React technologies.",
     tech: ["Next.js", "React.js", "Material-UI"],
+    status: "Completed",
   },
   {
     title: "Raft Consensus Algorithm Implementation",
     description:
       "Implemented the Raft consensus algorithm in GoLang to achieve fault-tolerant distributed coordination among nodes in distributed systems.",
     tech: ["GoLang", "Distributed Systems", "System Design"],
+    status: "Completed",
+  },
+];
+
+export const books: Book[] = [
+  {
+    title: "Deep Work",
+    author: "Cal Newport",
+    thoughts:
+      "A guide to mastering the art of focused success in a distracted world. Resonates with my approach to getting things done.",
+  },
+  {
+    title: "Atomic Habits",
+    author: "James Clear",
+    thoughts:
+      "Small changes, remarkable results. The systems-first mindset aligns with how I build software and habits.",
+  },
+];
+
+export const values: Value[] = [
+  {
+    title: "Quietly Confident",
+    description:
+      "I don't need to be the loudest in the room to be the most effective. I let my work speak.",
+  },
+  {
+    title: "100% Complete",
+    description:
+      "80% isn't done. I push through the friction to ensure every detail is polished and shipped.",
+  },
+  {
+    title: "Curious & Calm",
+    description:
+      "I approach problems with a calm mind and an endless curiosity about how systems work.",
   },
 ];
 

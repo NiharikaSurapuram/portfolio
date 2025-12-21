@@ -11,6 +11,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+                serif: ['var(--font-playfair)', 'Georgia', 'serif'],
                 mono: ['var(--font-mono)', 'JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
             },
             colors: {

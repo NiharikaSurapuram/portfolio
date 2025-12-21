@@ -16,12 +16,12 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800/50 z-50">
-      <div className="max-w-5xl mx-auto px-6 py-5">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
+      <div className="max-w-4xl mx-auto px-6 py-5">
         <div className="flex justify-between items-center">
           <Link
             href="/"
-            className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+            className="text-lg font-serif font-medium text-foreground hover:text-primary transition-colors"
             onClick={closeMenu}
           >
             Niharika Surapuram
@@ -33,31 +33,31 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
               <>
                 <a
                   href="#about"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   About
                 </a>
                 <a
                   href="#experience"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Experience
                 </a>
                 <a
                   href="#projects"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Projects
                 </a>
                 <Link
                   href="/blog"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Blog
                 </Link>
                 <a
                   href="#contact"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Contact
                 </a>
@@ -66,13 +66,13 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
               <>
                 <Link
                   href="/"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Portfolio
                 </Link>
                 <Link
                   href="/blog"
-                  className="text-sm text-gray-900 dark:text-gray-100 font-medium"
+                  className="text-sm text-foreground font-medium"
                 >
                   Blog
                 </Link>
@@ -86,7 +86,7 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
             <ThemeToggle />
             <button
               onClick={toggleMenu}
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
@@ -100,41 +100,41 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-100 dark:border-gray-800">
+          <div className="md:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-4 pt-4">
               {currentPage === "portfolio" ? (
                 <>
                   <a
                     href="#about"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     onClick={closeMenu}
                   >
                     About
                   </a>
                   <a
                     href="#experience"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     onClick={closeMenu}
                   >
                     Experience
                   </a>
                   <a
                     href="#projects"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     onClick={closeMenu}
                   >
                     Projects
                   </a>
                   <Link
                     href="/blog"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     onClick={closeMenu}
                   >
                     Blog
                   </Link>
                   <a
                     href="#contact"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     onClick={closeMenu}
                   >
                     Contact
@@ -144,14 +144,14 @@ export function Header({ currentPage = "portfolio" }: HeaderProps) {
                 <>
                   <Link
                     href="/"
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     onClick={closeMenu}
                   >
                     Portfolio
                   </Link>
                   <Link
                     href="/blog"
-                    className="text-sm text-gray-900 dark:text-gray-100 font-medium"
+                    className="text-sm text-foreground font-medium"
                     onClick={closeMenu}
                   >
                     Blog
