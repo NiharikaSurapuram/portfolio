@@ -1,7 +1,7 @@
 #:schema https://conductor.build/schemas/settings.repo.schema.json
 
 [scripts]
-setup = "pnpm install --frozen-lockfile"
-run = "pnpm dev --port $CONDUCTOR_PORT"
+setup = "bun install --frozen-lockfile"
+run = "bun dev --port $CONDUCTOR_PORT"
 run_mode = "on-demand"
 archive = "rm -rf node_modules .next"
