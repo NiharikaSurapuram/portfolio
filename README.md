@@ -69,8 +69,7 @@ In `app/layout.tsx`, update the metadata:
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm (recommended) or npm
+- [Bun](https://bun.sh) 1.3+
 
 ### Installation
 
@@ -78,13 +77,13 @@ In `app/layout.tsx`, update the metadata:
 2. Install dependencies:
 
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. Run the development server:
 
    ```bash
-   pnpm dev
+   bun dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
@@ -92,13 +91,13 @@ In `app/layout.tsx`, update the metadata:
 ### Building for Production
 
 ```bash
-pnpm build
-pnpm start
+bun run build
+bun start
 ```
 
 ## Tech Stack
 
-- **Framework**: Next.js 15
+- **Framework**: Next.js 16
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
